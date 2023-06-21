@@ -6,7 +6,7 @@ export const Section = styled.section`
 `;
 
 export const Div = styled.div`
-  width: 90%;
-  max-width: 1172px;
+  width: 95%;
+  /* max-width: 1172px; */
   margin: 0 auto;
 `;

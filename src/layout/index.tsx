@@ -1,11 +1,20 @@
-import { Footer, Nav } from '../components';
+import React from 'react';
+import { Footer, Nav, Preloader } from '../components';
 import { Section } from '../shared';
 
-export default function Layout() {
+interface ILayoutProps {
+  children: React.ReactNode;
+}
+
+export default function Layout({ children }: ILayoutProps) {
   return (
-    <Section>
-      <Nav />
-      <Footer />
-    </Section>
+    <React.Fragment>
+      {/* <Preloader /> */}
+      <Section>
+        <Nav />
+        {children}
+        <Footer />
+      </Section>
+    </React.Fragment>
   );
 }

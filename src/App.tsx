@@ -1,13 +1,11 @@
-import React from 'react';
-import Layout from './layout';
-import { Preloader } from './components';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <React.Fragment>
-      <Preloader />
-      <Layout />
-    </React.Fragment>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
   );
 }
 
