@@ -1,5 +1,14 @@
+import React from 'react';
+import Layout from './layout';
+import { Preloader } from './components';
+
 function App() {
-  return <div>iRecplus website</div>;
+  return (
+    <React.Fragment>
+      <Preloader />
+      <Layout />
+    </React.Fragment>
+  );
 }
 
 export default App;
