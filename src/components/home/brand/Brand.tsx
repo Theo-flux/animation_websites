@@ -13,16 +13,6 @@ const brands = [
   },
 
   {
-    name: 'netflix',
-    image: Netflix,
-  },
-
-  {
-    name: 'google',
-    image: Google,
-  },
-
-  {
     name: 'airbnb',
     image: Airbnb,
   },
@@ -30,6 +20,16 @@ const brands = [
   {
     name: 'uber',
     image: Uber,
+  },
+
+  {
+    name: 'netflix',
+    image: Netflix,
+  },
+
+  {
+    name: 'google',
+    image: Google,
   },
 ];
 
