@@ -4,6 +4,7 @@ import { device } from '../../../utils';
 export const NavContainer = styled.nav`
   position: fixed;
   width: 100%;
+  z-index: 9;
 `;
 
 export const FlexWrapper = styled.div`

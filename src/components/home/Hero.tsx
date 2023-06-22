@@ -1,24 +1,54 @@
+import { useMediaQuery } from 'react-responsive';
 import {
   HeroContainer,
-  HeroWrapper,
+  InnerWrapper,
+  Wrapper,
   HeroInfo,
   HeroFigure,
-  HeroImage,
+  HeroImg,
+  StyledTitle,
+  StyledSubheading,
+  Row,
 } from './home.css';
+
 import Dashboard from '../../assets/images/dashboard-image.svg';
+import Ring from '../../assets/images/ring.svg';
+import { CTABtn, ButtonIcon } from '../../shared';
 
 export default function Hero() {
+  const isTablet = useMediaQuery({ minWidth: 767 });
+
   return (
     <HeroContainer>
-      {/* <Div> */}
-      <HeroWrapper>
-        <HeroInfo>Hero Info</HeroInfo>
+      <InnerWrapper
+        style={{
+          background: `url(${Ring})`,
+          backgroundRepeat: `no-repeat`,
+          backgroundPosition: `${isTablet ? 'right' : 'left'}`,
+        }}
+      >
+        <Wrapper>
+          <HeroInfo>
+            <StyledTitle>
+              <div>Business heading</div>
+              <div> will dangle </div>
+              <div>right here</div>
+            </StyledTitle>
+            <StyledSubheading>
+              Your sub-heading comes right here with text to support the main
+              heading.
+            </StyledSubheading>
 
-        <HeroFigure>
-          <HeroImage src={Dashboard} alt="dashboard.svg" />
-        </HeroFigure>
-      </HeroWrapper>
-      {/* </Div> */}
+            <Row>
+              <CTABtn>Primary button</CTABtn>
+              <ButtonIcon text="Primary button" color="white" />
+            </Row>
+          </HeroInfo>
+          <HeroFigure>
+            <HeroImg src={Dashboard} alt="" />
+          </HeroFigure>
+        </Wrapper>
+      </InnerWrapper>
     </HeroContainer>
   );
 }

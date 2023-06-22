@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { device, radius, transition } from '../../utils';
+import { HiArrowNarrowRight } from 'react-icons/hi';
 
 const ButtonReset = styled.button`
   cursor: pointer;
@@ -8,6 +9,7 @@ const ButtonReset = styled.button`
   padding: 1rem;
   border-radius: ${radius.sm};
   font-size: 1rem;
+  ${transition}
 
   @media ${device.md} {
     font-size: 1em;
@@ -46,3 +48,40 @@ export const ButtonOutline = styled(ButtonReset)`
     }
   }
 `;
+
+export const CTABtn = styled(ButtonReset)`
+  padding: 1rem 2rem;
+  color: var(--primary);
+
+  &:hover {
+    color: white;
+    background-color: var(--primary);
+  }
+`;
+
+type ButtonIconContainerProps = {
+  color?: string;
+};
+
+export const ButtonIconContainer = styled(
+  ButtonReset
+)<ButtonIconContainerProps>`
+  padding: 1rem;
+  color: ${props => (props.color ? `${props.color}` : `var(--primary)`)};
+  background-color: transparent;
+  ${transition}
+
+  &:hover {
+    color: white;
+    background-color: var(--primary);
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const BtnText = styled.p`
+  margin-right: 1rem;
+`;
+
+export const StyledArrowIcon = styled(HiArrowNarrowRight)``;
