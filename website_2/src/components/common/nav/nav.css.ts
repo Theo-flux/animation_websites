@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { device } from '../../../utils';
 
 export const NavContainer = styled.nav`
+  background-color: #00000050;
   position: fixed;
   width: 100%;
   z-index: 9;
@@ -12,17 +13,6 @@ export const FlexWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
-`;
-
-export const Logo = styled.p`
-  font-size: 1rem;
-  font-weight: 700;
-  color: white;
-  z-index: 3;
-
-  @media ${device.md} {
-    font-size: 1.25rem;
-  }
 `;
 
 export const Hamburger = styled.div`

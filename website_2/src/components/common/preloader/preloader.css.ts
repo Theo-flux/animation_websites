@@ -6,7 +6,7 @@ type ProgressProp = {
 };
 
 export const PreloaderContainer = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 10;
   top: 0px;
   left: 0px;
@@ -17,7 +17,7 @@ export const PreloaderContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid magenta; */
+  overflow: hidden;
 `;
 
 export const Progress = styled.div<ProgressProp>`
