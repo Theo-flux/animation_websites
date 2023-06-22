@@ -1,10 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
 import gsap, { CSSPlugin, Power4 } from 'gsap';
-import { Div, Button, ButtonOutline } from '../../../shared';
+import { Div, Logo, Button, ButtonOutline } from '../../../shared';
 import {
   NavContainer,
   FlexWrapper,
-  Logo,
   ItemsContainer,
   Item,
   Hamburger,
@@ -118,7 +117,8 @@ export default function Nav() {
         left: '-900px',
         duration: 0.7,
         yoyoEase: Power4.easeInOut,
-      }).to(logoRef.current, {
+      })
+      .to(logoRef.current, {
         color: 'white',
         duration: 0.7,
         delay: -0.6,

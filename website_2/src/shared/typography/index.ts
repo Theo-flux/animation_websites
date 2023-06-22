@@ -28,6 +28,13 @@ export const StyledHeadingMD = styled.h3`
   color: black;
 `;
 
+export const Heading6 = styled.h6`
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 150%;
+  color: #fff;
+`;
+
 export const StyledBodyL = styled.p`
   font-style: normal;
   font-weight: 500;
@@ -42,4 +49,15 @@ export const StyledBodyMD = styled.p`
   font-size: 12px;
   line-height: 15px;
   color: black;
+`;
+
+export const Logo = styled.p`
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  z-index: 3;
+
+  @media ${device.md} {
+    font-size: 1.25rem;
+  }
 `;
