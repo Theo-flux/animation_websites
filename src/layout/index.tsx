@@ -9,7 +9,7 @@ interface ILayoutProps {
 export default function Layout({ children }: ILayoutProps) {
   return (
     <React.Fragment>
-      {/* <Preloader /> */}
+      <Preloader />
       <Section>
         <Nav />
         {children}
