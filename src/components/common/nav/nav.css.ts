@@ -95,7 +95,7 @@ export const ItemsContainer = styled.div`
 
     & > button:first-of-type {
       margin-bottom: 0rem;
-      margin-right: 2rem;
+      margin-right: 1rem;
     }
   }
 `;
@@ -110,6 +110,10 @@ export const Item = styled.p`
   @media ${device.md} {
     margin-bottom: 0rem;
     margin-right: 2rem;
+
+    &:last-of-type {
+      margin-right: 1rem;
+    }
     color: white;
   }
 `;

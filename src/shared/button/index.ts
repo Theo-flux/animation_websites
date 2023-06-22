@@ -34,13 +34,10 @@ export const Button = styled(ButtonReset)`
 export const ButtonOutline = styled(ButtonReset)`
   color: var(--primary);
   background-color: transparent;
-  outline: 1px solid var(--primary);
-  outline-offset: -1px;
   ${transition}
 
   @media ${device.md} {
     color: white;
-    outline: 1px solid white;
 
     &:hover {
       color: var(--primary);

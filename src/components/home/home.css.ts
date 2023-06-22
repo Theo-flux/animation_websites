@@ -3,13 +3,24 @@ import { device } from '../../utils';
 import { StyledHeadingXL } from '../../shared';
 
 export const HeroContainer = styled.div`
-  height: 100vh;
+  position: relative;
+  height: fit-content;
   background: var(--primary-gradient);
   overflow: hidden;
+
+  @media ${device.md} {
+    height: 100vh;
+  }
 `;
 
 export const InnerWrapper = styled.div`
   height: 100%;
+  padding-top: 10rem;
+  /* border: 1px solid magenta; */
+
+  @media ${device.md} {
+    padding: 0rem;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -17,6 +28,7 @@ export const Wrapper = styled.div`
   display: flex;
   height: 100%;
   width: 95%;
+  max-width: 1440px;
   margin: 0rem auto;
   display: flex;
   flex-direction: column;
@@ -90,6 +102,7 @@ export const HeroFigure = styled.figure`
 
   @media ${device.lg} {
     position: absolute;
+    z-index: 2;
     overflow: hidden;
     bottom: 0px;
     width: 50%;
@@ -98,6 +111,10 @@ export const HeroFigure = styled.figure`
 
   @media ${device.lg} {
     width: 60%;
+  }
+
+  @media ${device.xxl} {
+    width: 40%;
   }
 `;
 
@@ -112,8 +129,8 @@ export const Row = styled.div`
   justify-content: center;
 
   & > button:first-of-type {
-      margin-bottom: 1rem;
-    }
+    margin-bottom: 1rem;
+  }
 
   @media ${device.md} {
     flex-direction: row;
@@ -126,5 +143,18 @@ export const Row = styled.div`
 
   @media ${device.lg} {
     justify-content: flex-start;
+  }
+`;
+
+export const WhiteBg = styled.div`
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  /* border: 1px solid magenta; */
+
+  @media ${device.md} {
+    height: 100px;
   }
 `;
