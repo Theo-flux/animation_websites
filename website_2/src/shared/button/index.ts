@@ -49,6 +49,7 @@ export const ButtonOutline = styled(ButtonReset)`
 export const CTABtn = styled(ButtonReset)`
   padding: 1rem 2rem;
   color: var(--primary);
+  background-color: white;
 
   &:hover {
     color: white;
@@ -59,6 +60,9 @@ export const CTABtn = styled(ButtonReset)`
 type ButtonIconContainerProps = {
   color?: string;
 };
+
+export const StyledArrowIcon = styled(HiArrowNarrowRight)`
+`;
 
 export const ButtonIconContainer = styled(
   ButtonReset
@@ -80,5 +84,3 @@ export const ButtonIconContainer = styled(
 export const BtnText = styled.p`
   margin-right: 1rem;
 `;
-
-export const StyledArrowIcon = styled(HiArrowNarrowRight)``;
