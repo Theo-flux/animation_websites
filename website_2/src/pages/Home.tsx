@@ -1,10 +1,11 @@
 import Layout from '../layout';
-import { Hero } from '../components';
+import { Feature, Hero } from '../components';
 
 function Home() {
   return (
     <Layout>
       <Hero />
+      <Feature />
     </Layout>
   );
 }
