@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { device } from '../../utils';
-import { StyledHeadingXL } from '../../shared';
+import { device } from '../../../utils';
+import { Heading1 } from '../../../shared';
 
 export const HeroContainer = styled.div`
   position: relative;
@@ -48,7 +48,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const StyledTitle = styled(StyledHeadingXL)`
+export const StyledTitle = styled(Heading1)`
   color: white;
   text-align: center;
   line-height: 38px;

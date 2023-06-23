@@ -3,7 +3,7 @@ import { device } from '../../../utils';
 
 export const BrandContainer = styled.div`
   background-color: white;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
 `;
 
 export const BrandGrid = styled.div`
