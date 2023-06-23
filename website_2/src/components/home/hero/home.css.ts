@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { device } from '../../utils';
-import { Heading1 } from '../../shared';
+import { device } from '../../../utils';
+import { Heading1 } from '../../../shared';
 
 export const HeroContainer = styled.div`
   position: relative;

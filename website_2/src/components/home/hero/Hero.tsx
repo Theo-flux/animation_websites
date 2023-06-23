@@ -13,10 +13,10 @@ import {
   WhiteBg,
 } from './home.css';
 
-import Dashboard from '../../assets/images/dash-test.svg';
-import Ring from '../../assets/images/ring.svg';
-import { CTABtn, ButtonIcon } from '../../shared';
-import { Brand } from '.';
+import Dashboard from '../../../assets/images/dash-test.svg';
+import Ring from '../../../assets/images/ring.svg';
+import { CTABtn, ButtonIcon } from '../../../shared';
+import { Brand } from '..';
 
 export default function Hero() {
   const isTablet = useMediaQuery({ minWidth: 767 });
