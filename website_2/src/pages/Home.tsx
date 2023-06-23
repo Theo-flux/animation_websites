@@ -1,5 +1,5 @@
 import Layout from '../layout';
-import { Cta, Feature, Hero } from '../components';
+import { Cta, Feature, Hero, Testimonial } from '../components';
 
 function Home() {
   return (
@@ -7,6 +7,7 @@ function Home() {
       <Hero />
       <Cta />
       <Feature />
+      <Testimonial />
     </Layout>
   );
 }
