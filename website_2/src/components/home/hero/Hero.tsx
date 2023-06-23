@@ -35,8 +35,7 @@ export default function Hero() {
             <HeroInfo>
               <StyledTitle>
                 <div>Business heading</div>
-                <div> will dangle </div>
-                <div>right here</div>
+                <div> will dangle right here</div>
               </StyledTitle>
               <StyledSubheading>
                 Your sub-heading comes right here with text to support the main

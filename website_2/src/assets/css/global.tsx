@@ -57,6 +57,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-family: 'Manrope', sans-serif;
   font-size: 0.875rem;
   font-weight: 400;

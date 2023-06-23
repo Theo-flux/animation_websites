@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import { device } from '../../../utils';
-import { Heading2, BodyText } from '../../../shared';
+import { Heading2, BodyText, Heading5 } from '../../../shared';
+import { TbStarFilled } from 'react-icons/tb';
+import {
+  MdOutlineArrowForwardIos,
+  MdOutlineArrowBackIos,
+} from 'react-icons/md';
 
 type TTextProps = {
   color?: string;
@@ -21,10 +26,11 @@ export const TopContainer = styled.div`
   margin-bottom: 4rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   /* border: 1px solid magenta; */
 
-  @media ${device.md} {
+  @media ${device.lg} {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -99,7 +105,6 @@ export const SubTitle = styled(BodyText)<TTextProps>`
   font-size: 0.875rem;
   text-align: ${props => (props.textAlign ? `${props.textAlign}` : `left`)};
   width: 100%;
-  max-width: 579px;
   color: ${props => (props.color ? `${props.color}` : `white`)};
   margin-bottom: 1rem;
 
@@ -129,5 +134,156 @@ export const TeamImg = styled.img`
   }
   &:nth-of-type(5) {
     left: 100px;
+  }
+`;
+
+// Testimony styles
+export const Slider = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  height: 300px;
+  /* border: 1px solid magenta; */
+`;
+
+export const Slide = styled.div`
+  position: absolute;
+  width: 100%;
+  max-width: 520px;
+  height: 300px;
+  padding: 24px;
+  /* border: 1px solid magenta; */
+`;
+
+export const SlideTop = styled.div`
+  margin-bottom: 1rem;
+  /* border: 1px solid magenta; */
+`;
+
+export const SlideBottom = styled.div``;
+
+export const SlideRow = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const SlideAvatar = styled.img`
+  width: 50px;
+  margin-right: 1rem;
+`;
+
+export const SlideAbout = styled.div``;
+
+export const Quote = styled.p`
+  color: var(--primary);
+  font-size: 36px;
+  font-family: 'Plus Jakarta Sans';
+`;
+
+export const SlideName = styled(Heading5)`
+  color: var(--primary);
+`;
+
+export const SlideRole = styled(BodyText)`
+  color: var(--N200);
+`;
+
+export const SlideComment = styled(BodyText)`
+  color: var(--N200);
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: 'Plus Jakarta Sans';
+  font-style: italic;
+  line-height: 32px;
+  max-width: 442px;
+`;
+
+export const TopFlex = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 0.75rem;
+`;
+
+export const RatingFlex = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const StyledRate = styled(TbStarFilled)`
+  color: #faad13;
+  font-size: 1.2rem;
+  margin-right: 0.35rem;
+`;
+
+export const Pagination = styled.div`
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid magenta; */
+`;
+
+export const Page = styled.div`
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: var(--foundation-primary-light, #e7f7f2);
+  margin-right: 0.35rem;
+`;
+
+type TArrowProps = {
+  active?: boolean;
+};
+
+export const StyledNextArrow = styled(MdOutlineArrowForwardIos)`
+  color: var(--primary);
+`;
+
+export const StyledPrevArrow = styled(MdOutlineArrowBackIos)`
+  color: var(--primary);
+`;
+
+export const ArrowContainer = styled.div<TArrowProps>`
+  background-color: ${props => (props.active ? `var(--primary)` : `white`)};
+
+  & > ${StyledNextArrow}, & > ${StyledPrevArrow} {
+    color: ${props => (props.active ? `white` : `var(--primary)`)};
+  }
+
+  position: absolute;
+  bottom: 0px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  font-size: 1.2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid magenta; */
+
+  &:last-of-type {
+    right: 0px;
+  }
+
+  &:first-of-type {
+    left: 0px;
+  }
+
+  &:hover {
+    background-color: var(--primary);
+  }
+
+  &:hover ${StyledNextArrow},   &:hover ${StyledPrevArrow} {
+    color: white;
   }
 `;
