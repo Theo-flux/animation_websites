@@ -12,7 +12,7 @@ import {
   TeamFigure,
   TeamImg,
 } from './testimonials.css';
-import { BodyText, CTABtn, Div } from '../../../shared';
+import { CTABtn, Div } from '../../../shared';
 import Circles from '../../../assets/images/circulars.svg';
 import Member from '../../../assets/images/team/Item.svg';
 import Member1 from '../../../assets/images/team/Item-1.svg';
@@ -24,7 +24,18 @@ export default function Testimonial() {
   return (
     <TestimonialContainer>
       <Div>
-        <TopContainer>Top</TopContainer>
+        <TopContainer>
+          <Info maxWidth="463px">
+            <Title color="black" textAlign="center">
+              Powering the growth of 100+ business & retailers in your City.
+            </Title>
+            <SubTitle color="var(--N200)" textAlign="center">
+              From single store, startups, to large multi-store brands.
+            </SubTitle>
+          </Info>
+
+          <div>testimonies</div>
+        </TopContainer>
 
         <BottomContainer>
           <InnerWrapper>
