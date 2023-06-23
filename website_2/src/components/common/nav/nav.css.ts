@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { device } from '../../../utils';
+import { device, transition } from '../../../utils';
 
 export const NavContainer = styled.nav`
-  background-color: #00000050;
+  background-color: #00000080;
   position: fixed;
   width: 100%;
   z-index: 9;
@@ -38,14 +38,14 @@ export const TopLine = styled.div`
   height: 2px;
   border-radius: 2px;
   margin-bottom: 0.15rem;
-  transform-origin: center center;
+  transform-origin: 50% 50%;
 `;
 
 export const BottomLine = styled.div`
   width: 100%;
   border-radius: 2px;
   height: 2px;
-  transform-origin: center center;
+  transform-origin: 40% 50%;
 `;
 
 export const ItemsContainer = styled.div`
@@ -91,11 +91,28 @@ export const ItemsContainer = styled.div`
 `;
 
 export const Item = styled.p`
+  position: relative;
+  width: fit-content;
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 600;
   color: black;
   margin-bottom: 2rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 0px;
+    height: 2px;
+    background-color: black;
+    ${transition}
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
 
   @media ${device.md} {
     margin-bottom: 0rem;
@@ -105,5 +122,9 @@ export const Item = styled.p`
       margin-right: 1rem;
     }
     color: white;
+
+    &::after {
+      background-color: white;
+    }
   }
 `;
