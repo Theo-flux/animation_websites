@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '../../../utils';
+import { device, transition } from '../../../utils';
 import { Heading2, BodyText, Heading5 } from '../../../shared';
 import { TbStarFilled } from 'react-icons/tb';
 import {
@@ -14,6 +14,11 @@ type TTextProps = {
 
 type TInfoProps = {
   maxWidth?: string;
+};
+
+type TPageProps = {
+  index: number;
+  currentSlide: number;
 };
 
 export const TestimonialContainer = styled.div`
@@ -137,6 +142,13 @@ export const TeamImg = styled.img`
   }
 `;
 
+export const SliderContainer = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  /* border: 1px solid magenta; */
+`;
+
 // Testimony styles
 export const Slider = styled.div`
   position: relative;
@@ -146,25 +158,40 @@ export const Slider = styled.div`
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
-  height: 300px;
+  height: 320px;
   /* border: 1px solid magenta; */
 `;
 
 export const Slide = styled.div`
   position: absolute;
-  width: 100%;
-  max-width: 520px;
-  height: 300px;
-  padding: 24px;
+  flex-basis: 100%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 320px;
+  padding: 18px;
+  transition: all 0.5s;
+  background-color: white;
   /* border: 1px solid magenta; */
+
+  @media ${device.base} {
+    padding: 24px;
+  }
 `;
 
 export const SlideTop = styled.div`
-  margin-bottom: 1rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
   /* border: 1px solid magenta; */
+
+  @media ${device.base} {
+    margin-bottom: 1rem;
+  }
 `;
 
-export const SlideBottom = styled.div``;
+export const SlideBottom = styled.div`
+  width: 100%;
+  /* border: 1px solid magenta; */
+`;
 
 export const SlideRow = styled.div`
   display: flex;
@@ -222,22 +249,33 @@ export const StyledRate = styled(TbStarFilled)`
   margin-right: 0.35rem;
 `;
 
-export const Pagination = styled.div`
+export const SliderPeripherals = styled.div`
   position: absolute;
   width: 100%;
   bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid magenta; */
+`;
+
+export const Pagination = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   /* border: 1px solid magenta; */
 `;
 
-export const Page = styled.div`
+export const Page = styled.div<TPageProps>`
   width: 10px;
   height: 10px;
   border-radius: 10px;
-  background: var(--foundation-primary-light, #e7f7f2);
+  background: ${props =>
+    props.index == props.currentSlide
+      ? `var(--primary)`
+      : `var(--foundation-primary-light, #e7f7f2)`};
   margin-right: 0.35rem;
+  ${transition}
 `;
 
 type TArrowProps = {
@@ -259,8 +297,6 @@ export const ArrowContainer = styled.div<TArrowProps>`
     color: ${props => (props.active ? `white` : `var(--primary)`)};
   }
 
-  position: absolute;
-  bottom: 0px;
   width: 40px;
   height: 40px;
   border-radius: 100%;
@@ -271,19 +307,11 @@ export const ArrowContainer = styled.div<TArrowProps>`
   align-items: center;
   /* border: 1px solid magenta; */
 
-  &:last-of-type {
-    right: 0px;
-  }
-
-  &:first-of-type {
-    left: 0px;
-  }
-
   &:hover {
     background-color: var(--primary);
   }
 
-  &:hover ${StyledNextArrow},   &:hover ${StyledPrevArrow} {
+  &:hover ${StyledNextArrow}, &:hover ${StyledPrevArrow} {
     color: white;
   }
 `;
