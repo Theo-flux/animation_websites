@@ -1,3 +1,4 @@
+import { useState, useRef, useEffect } from 'react';
 import {
   TestimonialContainer,
   TopContainer,
@@ -30,6 +31,7 @@ import {
   StyledNextArrow,
   StyledPrevArrow,
   SliderContainer,
+  SliderPeripherals,
 } from './testimonials.css';
 import { CTABtn, Div } from '../../../shared';
 import Circles from '../../../assets/images/circulars.svg';
@@ -81,6 +83,44 @@ const testimonies = [
 ];
 
 export default function Testimonial() {
+  // TODO: Fix carousel slide bug
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const maxSlide = testimonies.length - 1;
+  const slideRef = useRef<HTMLDivElement[]>([]);
+  const pushRef = (el: HTMLDivElement) => slideRef.current.push(el);
+
+  const handleNext = () => {
+    if (currentSlide < maxSlide) {
+      setCurrentSlide(prev => prev + 1);
+    } else {
+      setCurrentSlide(0);
+    }
+
+    slideRef.current.forEach((slide, index) => {
+      slide.style.transform = `translateX(${105 * (index - currentSlide)}%)`;
+    });
+  };
+
+  const handlePrev = () => {
+    if (currentSlide == 0) {
+      setCurrentSlide(maxSlide);
+    } else {
+      setCurrentSlide(prev => prev - 1);
+    }
+
+    slideRef.current.forEach((slide, index) => {
+      slide.style.transform = `translateX(${105 * (index - currentSlide)}%)`;
+    });
+  };
+
+  // console.log(currentSlide);
+
+  useEffect(() => {
+    slideRef.current.forEach((slide, index) => {
+      slide.style.transform = `translateX(${105 * (index - currentSlide)}%)`;
+    });
+  }, []);
+
   return (
     <TestimonialContainer>
       <Div>
@@ -104,7 +144,7 @@ export default function Testimonial() {
                   arr.push('');
                 }
                 return (
-                  <Slide key={index}>
+                  <Slide key={index} ref={pushRef}>
                     <SlideTop>
                       <TopFlex>
                         {/* <Quote>"</Quote> */}
@@ -130,19 +170,27 @@ export default function Testimonial() {
               })}
             </Slider>
 
-            <Pagination>
-              {testimonies.map((_, index) => {
-                return <Page key={index}></Page>;
-              })}
-            </Pagination>
+            <SliderPeripherals>
+              <ArrowContainer onClick={() => handlePrev()}>
+                <StyledPrevArrow />
+              </ArrowContainer>
 
-            <ArrowContainer>
-              <StyledPrevArrow />
-            </ArrowContainer>
+              <Pagination>
+                {testimonies.map((_, index) => {
+                  return (
+                    <Page
+                      key={index}
+                      index={index}
+                      currentSlide={currentSlide}
+                    ></Page>
+                  );
+                })}
+              </Pagination>
 
-            <ArrowContainer active={true}>
-              <StyledNextArrow />
-            </ArrowContainer>
+              <ArrowContainer onClick={() => handleNext()}>
+                <StyledNextArrow />
+              </ArrowContainer>
+            </SliderPeripherals>
           </SliderContainer>
         </TopContainer>
 

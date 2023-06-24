@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '../../../utils';
+import { device, transition } from '../../../utils';
 import { Heading2, BodyText, Heading5 } from '../../../shared';
 import { TbStarFilled } from 'react-icons/tb';
 import {
@@ -14,6 +14,11 @@ type TTextProps = {
 
 type TInfoProps = {
   maxWidth?: string;
+};
+
+type TPageProps = {
+  index: number;
+  currentSlide: number;
 };
 
 export const TestimonialContainer = styled.div`
@@ -146,29 +151,41 @@ export const SliderContainer = styled.div`
 
 // Testimony styles
 export const Slider = styled.div`
+  position: relative;
   width: 100%;
   max-width: 520px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
-  height: 300px;
+  height: 320px;
   /* border: 1px solid magenta; */
 `;
 
 export const Slide = styled.div`
-  flex-basis: 520px;
+  position: absolute;
+  flex-basis: 100%;
   flex-grow: 0;
   flex-shrink: 0;
-  height: 300px;
-  padding: 24px;
-  border: 1px solid magenta;
+  height: 320px;
+  padding: 18px;
+  transition: all 0.5s;
+  background-color: white;
+  /* border: 1px solid magenta; */
+
+  @media ${device.base} {
+    padding: 24px;
+  }
 `;
 
 export const SlideTop = styled.div`
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   /* border: 1px solid magenta; */
+
+  @media ${device.base} {
+    margin-bottom: 1rem;
+  }
 `;
 
 export const SlideBottom = styled.div`
@@ -232,22 +249,33 @@ export const StyledRate = styled(TbStarFilled)`
   margin-right: 0.35rem;
 `;
 
-export const Pagination = styled.div`
+export const SliderPeripherals = styled.div`
   position: absolute;
   width: 100%;
   bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid magenta; */
+`;
+
+export const Pagination = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   /* border: 1px solid magenta; */
 `;
 
-export const Page = styled.div`
+export const Page = styled.div<TPageProps>`
   width: 10px;
   height: 10px;
   border-radius: 10px;
-  background: var(--foundation-primary-light, #e7f7f2);
+  background: ${props =>
+    props.index == props.currentSlide
+      ? `var(--primary)`
+      : `var(--foundation-primary-light, #e7f7f2)`};
   margin-right: 0.35rem;
+  ${transition}
 `;
 
 type TArrowProps = {
@@ -269,8 +297,6 @@ export const ArrowContainer = styled.div<TArrowProps>`
     color: ${props => (props.active ? `white` : `var(--primary)`)};
   }
 
-  position: absolute;
-  bottom: 0px;
   width: 40px;
   height: 40px;
   border-radius: 100%;
@@ -280,14 +306,6 @@ export const ArrowContainer = styled.div<TArrowProps>`
   justify-content: center;
   align-items: center;
   /* border: 1px solid magenta; */
-
-  &:last-of-type {
-    right: 0px;
-  }
-
-  &:first-of-type {
-    left: 0px;
-  }
 
   &:hover {
     background-color: var(--primary);
