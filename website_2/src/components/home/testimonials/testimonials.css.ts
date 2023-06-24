@@ -137,9 +137,15 @@ export const TeamImg = styled.img`
   }
 `;
 
+export const SliderContainer = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  /* border: 1px solid magenta; */
+`;
+
 // Testimony styles
 export const Slider = styled.div`
-  position: relative;
   width: 100%;
   max-width: 520px;
   display: flex;
@@ -151,20 +157,24 @@ export const Slider = styled.div`
 `;
 
 export const Slide = styled.div`
-  position: absolute;
-  width: 100%;
-  max-width: 520px;
+  flex-basis: 520px;
+  flex-grow: 0;
+  flex-shrink: 0;
   height: 300px;
   padding: 24px;
-  /* border: 1px solid magenta; */
+  border: 1px solid magenta;
 `;
 
 export const SlideTop = styled.div`
+  width: 100%;
   margin-bottom: 1rem;
   /* border: 1px solid magenta; */
 `;
 
-export const SlideBottom = styled.div``;
+export const SlideBottom = styled.div`
+  width: 100%;
+  /* border: 1px solid magenta; */
+`;
 
 export const SlideRow = styled.div`
   display: flex;
@@ -283,7 +293,7 @@ export const ArrowContainer = styled.div<TArrowProps>`
     background-color: var(--primary);
   }
 
-  &:hover ${StyledNextArrow},   &:hover ${StyledPrevArrow} {
+  &:hover ${StyledNextArrow}, &:hover ${StyledPrevArrow} {
     color: white;
   }
 `;

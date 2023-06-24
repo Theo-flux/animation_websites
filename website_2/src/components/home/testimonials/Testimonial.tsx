@@ -29,6 +29,7 @@ import {
   ArrowContainer,
   StyledNextArrow,
   StyledPrevArrow,
+  SliderContainer,
 } from './testimonials.css';
 import { CTABtn, Div } from '../../../shared';
 import Circles from '../../../assets/images/circulars.svg';
@@ -93,39 +94,41 @@ export default function Testimonial() {
             </SubTitle>
           </Info>
 
-          <Slider>
-            {testimonies.map((testimony, index) => {
-              const { avatar, rating, occupation, comment, name } = testimony;
-              const arr = [];
+          <SliderContainer>
+            <Slider>
+              {testimonies.map((testimony, index) => {
+                const { avatar, rating, occupation, comment, name } = testimony;
+                const arr = [];
 
-              for (let i = 0; i < rating; i++) {
-                arr.push('');
-              }
-              return (
-                <Slide key={index}>
-                  <SlideTop>
-                    <TopFlex>
-                      {/* <Quote>"</Quote> */}
-                      <RatingFlex>
-                        {arr.map((_, index) => {
-                          return <StyledRate key={index} />;
-                        })}
-                      </RatingFlex>
-                    </TopFlex>
-                    <SlideComment>{comment}</SlideComment>
-                  </SlideTop>
-                  <SlideBottom>
-                    <SlideRow>
-                      <SlideAvatar src={avatar} alt="avatar" />
-                      <SlideAbout>
-                        <SlideName>{name}</SlideName>
-                        <SlideRole>{occupation}</SlideRole>
-                      </SlideAbout>
-                    </SlideRow>
-                  </SlideBottom>
-                </Slide>
-              );
-            })}
+                for (let i = 0; i < rating; i++) {
+                  arr.push('');
+                }
+                return (
+                  <Slide key={index}>
+                    <SlideTop>
+                      <TopFlex>
+                        {/* <Quote>"</Quote> */}
+                        <RatingFlex>
+                          {arr.map((_, index) => {
+                            return <StyledRate key={index} />;
+                          })}
+                        </RatingFlex>
+                      </TopFlex>
+                      <SlideComment>{comment}</SlideComment>
+                    </SlideTop>
+                    <SlideBottom>
+                      <SlideRow>
+                        <SlideAvatar src={avatar} alt="avatar" />
+                        <SlideAbout>
+                          <SlideName>{name}</SlideName>
+                          <SlideRole>{occupation}</SlideRole>
+                        </SlideAbout>
+                      </SlideRow>
+                    </SlideBottom>
+                  </Slide>
+                );
+              })}
+            </Slider>
 
             <Pagination>
               {testimonies.map((_, index) => {
@@ -140,7 +143,7 @@ export default function Testimonial() {
             <ArrowContainer active={true}>
               <StyledNextArrow />
             </ArrowContainer>
-          </Slider>
+          </SliderContainer>
         </TopContainer>
 
         <BottomContainer>
