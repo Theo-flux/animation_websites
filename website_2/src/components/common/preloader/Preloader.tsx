@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   PreloaderContainer,
   Logo,
@@ -9,7 +9,11 @@ import {
 import gsap, { CSSPlugin, Power4 } from 'gsap';
 gsap.registerPlugin(CSSPlugin);
 
-export default function Loader() {
+interface ILoaderProps {
+  setAnimate: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function Loader({ setAnimate }: ILoaderProps) {
   const followRef = useRef(null);
   const parentRef = useRef(null);
   const counterRef = useRef(null);
@@ -20,12 +24,16 @@ export default function Loader() {
   const reveal = () => {
     const tl = gsap.timeline();
 
-    tl.to(followRef.current, {
-      width: '100%',
-      duration: 1.2,
-      delay: 0.7,
-      ease: Power4.easeInOut,
-    }, 1)
+    tl.to(
+      followRef.current,
+      {
+        width: '100%',
+        duration: 1.2,
+        delay: 0.7,
+        ease: Power4.easeInOut,
+      },
+      1
+    )
       .to(
         counterRef.current,
         {
@@ -45,10 +53,10 @@ export default function Loader() {
           ease: Power4.easeInOut,
         },
         2
-      ).to(followRef.current, {
+      )
+      .to(followRef.current, {
         height: '100%',
         duration: 0.8,
-        delay: 0.3,
         ease: Power4.easeInOut,
       })
       .to(followRef.current, {
@@ -62,6 +70,10 @@ export default function Loader() {
         duration: 1.5,
         delay: -1.6,
         ease: Power4.easeInOut,
+        onComplete: () => {
+          console.log('animation completed!');
+          setAnimate(true);
+        },
       });
   };
 

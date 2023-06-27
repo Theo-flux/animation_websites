@@ -141,6 +141,7 @@ export default function Nav({ animate }: INavProps) {
       opacity: 1,
       top: '0px',
       duration: 1.5,
+      delay: 1,
       ease: Power4.easeInOut,
     });
   };
