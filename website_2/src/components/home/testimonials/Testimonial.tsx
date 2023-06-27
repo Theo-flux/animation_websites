@@ -1,3 +1,5 @@
+import gsap, { CSSPlugin, Power4 } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useState, useRef, useEffect } from 'react';
 import {
   TestimonialContainer,
@@ -89,6 +91,10 @@ export default function Testimonial() {
   const slideRef = useRef<HTMLDivElement[]>([]);
   const pushRef = (el: HTMLDivElement) => slideRef.current.push(el);
 
+  const titleRef = useRef(null);
+  const subTitleRef = useRef(null);
+  const sliderRef = useRef(null);
+
   const handleNext = () => {
     if (currentSlide < maxSlide) {
       setCurrentSlide(prev => prev + 1);
@@ -121,20 +127,69 @@ export default function Testimonial() {
     });
   }, []);
 
+  const animateOnScroll = () => {
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+      sliderRef.current,
+      {
+        opacity: 0,
+        x: 80,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: Power4.easeInOut,
+        scrollTrigger: {
+          // markers: true,
+          start: 'top 90%',
+          end: 'bottom 90%',
+          trigger: sliderRef.current,
+          scrub: true,
+        },
+      }
+    ).fromTo(
+      [titleRef.current, subTitleRef.current],
+      {
+        opacity: 0,
+        x: -80,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.3,
+        ease: Power4.easeInOut,
+        stagger: 0.1,
+        scrollTrigger: {
+          // markers: true,
+          start: 'top 90%',
+          end: 'bottom 90%',
+          trigger: titleRef.current,
+          scrub: true,
+        },
+      }
+    );
+  };
+
+  useEffect(() => {
+    animateOnScroll();
+  });
+
   return (
     <TestimonialContainer>
       <Div>
         <TopContainer>
           <Info maxWidth="463px">
-            <Title color="black" textAlign="center">
+            <Title ref={titleRef} color="black" textAlign="center">
               Powering the growth of 100+ business & retailers in your City.
             </Title>
-            <SubTitle color="var(--N200)" textAlign="center">
+            <SubTitle ref={subTitleRef} color="var(--N200)" textAlign="center">
               From single store, startups, to large multi-store brands.
             </SubTitle>
           </Info>
 
-          <SliderContainer>
+          <SliderContainer ref={sliderRef}>
             <Slider>
               {testimonies.map((testimony, index) => {
                 const { avatar, rating, occupation, comment, name } = testimony;
@@ -147,7 +202,6 @@ export default function Testimonial() {
                   <Slide key={index} ref={pushRef}>
                     <SlideTop>
                       <TopFlex>
-                        {/* <Quote>"</Quote> */}
                         <RatingFlex>
                           {arr.map((_, index) => {
                             return <StyledRate key={index} />;

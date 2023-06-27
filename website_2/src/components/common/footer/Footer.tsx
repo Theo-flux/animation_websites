@@ -1,3 +1,6 @@
+import { useEffect, useRef } from 'react';
+import gsap, { CSSPlugin, Power4 } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   FooterContainer,
   FooterWrapper,
@@ -18,6 +21,7 @@ import { Div, Heading6, Logo } from '../../../shared';
 
 const items = [
   {
+    id: 'footer',
     column: 'First Column',
     links: [
       {
@@ -44,6 +48,7 @@ const items = [
   },
 
   {
+    id: 'footer',
     column: 'Second Column',
     links: [
       {
@@ -70,6 +75,7 @@ const items = [
   },
 
   {
+    id: 'footer',
     column: 'Third Column',
     links: [
       {
@@ -92,6 +98,7 @@ const items = [
   },
 
   {
+    id: 'footer',
     column: 'Fourth Column',
     links: [
       {
@@ -111,11 +118,42 @@ const items = [
 ];
 
 export default function Footer() {
+  gsap.registerPlugin(CSSPlugin, ScrollTrigger);
+  const footerbrandRef = useRef(null);
+  const containerRef = useRef(null);
+
+  const onScrollFooter = () => {
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+      [footerbrandRef.current, document.querySelectorAll('.footer')],
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.1,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top 90%',
+          end: 'bottom bottom',
+          scrub: true,
+        },
+      }
+    );
+  };
+
+  useEffect(() => {
+    onScrollFooter();
+  });
   return (
     <FooterContainer>
       <Div>
-        <FooterWrapper>
-          <FooterSection>
+        <FooterWrapper ref={containerRef}>
+          <FooterSection ref={footerbrandRef}>
             <Logo>Brand Logo</Logo>
             <Text>Build a very nice business template that’s astonishing.</Text>
             <Row>
@@ -136,9 +174,9 @@ export default function Footer() {
 
           <FooterGrid>
             {items.map((item, index) => {
-              const { column, links } = item;
+              const { id, column, links } = item;
               return (
-                <GridItem key={index}>
+                <GridItem key={index} className={id}>
                   <Heading6>{column}</Heading6>
 
                   <GridInner>
