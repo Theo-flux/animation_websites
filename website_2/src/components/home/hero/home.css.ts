@@ -6,9 +6,10 @@ export const HeroContainer = styled.div`
   position: relative;
   height: fit-content;
   background: var(--primary-gradient);
+  opacity: 0;
   overflow: hidden;
 
-  @media ${device.md} {
+  @media ${device.lg} {
     height: 100vh;
   }
 `;
@@ -82,8 +83,17 @@ export const StyledSubheading = styled.p`
 export const HeroInfo = styled.div`
   width: 100%;
   max-width: 600px;
-  margin-bottom: 4rem;
+  margin-bottom: 20rem;
+  opacity: 0;
   /* border: 1px solid magenta; */
+
+  @media ${device.base} {
+    margin-bottom: 30rem;
+  }
+
+  @media ${device.md} {
+    margin-bottom: 40rem;
+  }
 
   @media ${device.lg} {
     width: 45%;
@@ -96,15 +106,19 @@ export const HeroInfo = styled.div`
 `;
 
 export const HeroFigure = styled.figure`
-  position: static;
-  /* border: 1px solid magenta; */
+  position: absolute;
   width: 100%;
+  margin-top: 300px;
+  opacity: 0;
+  bottom: 100px;
+
+  @media ${device.md} {
+    bottom: -100px;
+  }
 
   @media ${device.lg} {
-    position: absolute;
     z-index: 2;
     overflow: hidden;
-    bottom: 0px;
     width: 50%;
     right: -200px;
   }
