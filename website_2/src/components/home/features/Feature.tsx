@@ -64,11 +64,13 @@ export default function Feature() {
   gsap.registerPlugin(CSSPlugin, ScrollTrigger);
   const titleRef = useRef(null);
   const subTitleRef = useRef(null);
+  const divRef = useRef(null);
 
   const topAnimation = () => {
     const tl = gsap.timeline();
     tl.fromTo(
       [
+        divRef.current,
         titleRef.current,
         subTitleRef.current,
         document.querySelectorAll('.card'),
@@ -80,11 +82,11 @@ export default function Feature() {
       {
         opacity: 1,
         y: 0,
-        duration: 0.3,
-        ease: Power4.easeInOut,
+        duration: 0.8,
         stagger: 0.1,
+        ease: Power4.easeInOut,
         scrollTrigger: {
-          trigger: titleRef.current,
+          trigger: divRef.current,
           // markers: true,
           start: 'top 90%',
           end: 'top top',
@@ -100,7 +102,7 @@ export default function Feature() {
 
   return (
     <FeatureContainer>
-      <Div>
+      <Div ref={divRef}>
         <Top>
           <Title ref={titleRef}>Track any hashtag(s) Performance</Title>
           <SubTitle ref={subTitleRef}>
