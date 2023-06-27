@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import {
   HeroContainer,
@@ -17,13 +17,47 @@ import Dashboard from '../../../assets/images/dash-test.svg';
 import Ring from '../../../assets/images/ring.svg';
 import { CTABtn, ButtonIcon } from '../../../shared';
 import { Brand } from '..';
+import gsap, { CSSPlugin, Power4 } from 'gsap';
+gsap.registerPlugin(CSSPlugin);
 
-export default function Hero() {
+interface IHeroProps {
+  animate: boolean;
+}
+
+export default function Hero({ animate }: IHeroProps) {
   const isTablet = useMediaQuery({ minWidth: 767 });
+  const heroRef = useRef(null);
+  const dashboardRef = useRef(null);
+  const infoRef = useRef(null);
+
+  const heroReveal = () => {
+    const tl = gsap.timeline();
+    tl.to(heroRef.current, {
+      opacity: 1,
+      duration: 0.8,
+      ease: Power4.easeInOut,
+    })
+      .to(dashboardRef.current, {
+        bottom: '0px',
+        duration: 1.3,
+        opacity: 1,
+      })
+      .to(infoRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 1.3,
+        delay: -1,
+        ease: Power4.easeIn,
+      });
+  };
+
+  useEffect(() => {
+    if (animate) heroReveal();
+  }, [animate]);
 
   return (
     <React.Fragment>
-      <HeroContainer>
+      <HeroContainer ref={heroRef}>
         <InnerWrapper
           style={{
             background: `url(${Ring})`,
@@ -32,11 +66,8 @@ export default function Hero() {
           }}
         >
           <Wrapper>
-            <HeroInfo>
-              <StyledTitle>
-                <div>Business heading</div>
-                <div> will dangle right here</div>
-              </StyledTitle>
+            <HeroInfo ref={infoRef}>
+              <StyledTitle>Business heading will dangle right here</StyledTitle>
               <StyledSubheading>
                 Your sub-heading comes right here with text to support the main
                 heading.
@@ -47,7 +78,7 @@ export default function Hero() {
                 <ButtonIcon text="Primary button" color="white" />
               </Row>
             </HeroInfo>
-            <HeroFigure>
+            <HeroFigure ref={dashboardRef}>
               <HeroImg src={Dashboard} alt="" />
             </HeroFigure>
           </Wrapper>

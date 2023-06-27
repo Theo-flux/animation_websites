@@ -14,7 +14,7 @@ export const Top = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 4rem;
-
+  /* border: 1px solid magenta; */
   @media ${device.lg} {
     flex-direction: row;
     justify-content: space-between;
@@ -84,6 +84,7 @@ export const Img = styled.img`
 export const PhoneFigure = styled.figure`
   position: relative;
   top: 0;
+  left: 0;
   background: linear-gradient(270deg, rgba(234, 239, 241, 0.34) 0%, white 100%);
   width: 200px;
   height: 200px;

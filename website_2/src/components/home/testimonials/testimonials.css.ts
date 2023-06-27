@@ -291,6 +291,7 @@ export const StyledPrevArrow = styled(MdOutlineArrowBackIos)`
 `;
 
 export const ArrowContainer = styled.div<TArrowProps>`
+  cursor: pointer;
   background-color: ${props => (props.active ? `var(--primary)` : `white`)};
 
   & > ${StyledNextArrow}, & > ${StyledPrevArrow} {

@@ -36,13 +36,19 @@ const items = [
   },
 ];
 
-export default function Nav() {
+interface INavProps {
+  animate: boolean;
+}
+
+export default function Nav({ animate }: INavProps) {
+  const navbarRef = useRef(null);
   const mobileRef = useRef(null);
   const logoRef = useRef(null);
   const rightRef = useRef(null);
   const leftRef = useRef(null);
   const [openNav, setOpennav] = useState(false);
 
+  // Hamburger menu animation
   const forwardAnimate = () => {
     const tl = gsap.timeline();
 
@@ -84,6 +90,7 @@ export default function Nav() {
       });
   };
 
+  // Hamburger menu animation
   const backAnimate = () => {
     const tl = gsap.timeline();
 
@@ -126,12 +133,29 @@ export default function Nav() {
       });
   };
 
+  // Navbar animation
+  const navAnimation = () => {
+    const tl = gsap.timeline();
+
+    tl.to(navbarRef.current, {
+      opacity: 1,
+      top: '0px',
+      duration: 1.5,
+      delay: 1,
+      ease: Power4.easeInOut,
+    });
+  };
+
   useEffect(() => {
     openNav ? forwardAnimate() : backAnimate();
   }, [openNav]);
 
+  useEffect(() => {
+    if (animate) navAnimation();
+  }, [animate]);
+
   return (
-    <NavContainer>
+    <NavContainer ref={navbarRef}>
       <Div>
         <FlexWrapper>
           <Logo ref={logoRef}>Brand Logo</Logo>

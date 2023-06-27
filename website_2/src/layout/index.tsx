@@ -4,14 +4,24 @@ import { Section } from '../shared';
 
 interface ILayoutProps {
   children: React.ReactNode;
+  animate: boolean;
+  setAnimate: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function Layout({ children }: ILayoutProps) {
+export default function Layout({
+  animate,
+  setAnimate,
+  children,
+}: ILayoutProps) {
+  // window.onload = () => {
+  //   alert('ONLOAD');
+  // };
+
   return (
     <React.Fragment>
-      {/* <Preloader /> */}
+      {/* <Preloader setAnimate={setAnimate} /> */}
       <Section>
-        <Nav />
+        <Nav animate={animate} />
         {children}
         <Footer />
       </Section>
