@@ -52,18 +52,18 @@ export default function Brand() {
       document.querySelectorAll('.brand'),
       {
         opacity: 0,
-        x: -20,
+        y: 40,
       },
       {
         opacity: 1,
-        x: 0,
-        duration: 1.3,
+        y: 0,
+        duration: 1.8,
         ease: Power4.easeInOut,
         stagger: 0.1,
         scrollTrigger: {
           trigger: brandContRef.current,
           start: 'top 80%',
-          end: 'bottom 80%',
+          end: 'bottom center',
           scrub: true,
         },
       }

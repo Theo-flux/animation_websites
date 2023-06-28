@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
-import gsap, { CSSPlugin, Power4 } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap, { Power4 } from 'gsap';
 import { Div } from '../../../shared';
 import {
   FeatureContainer,
@@ -61,7 +60,6 @@ const Card = ({ feat }: ICardProps) => {
 };
 
 export default function Feature() {
-  gsap.registerPlugin(CSSPlugin, ScrollTrigger);
   const titleRef = useRef(null);
   const subTitleRef = useRef(null);
   const divRef = useRef(null);

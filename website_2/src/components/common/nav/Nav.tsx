@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import gsap, { CSSPlugin, Power4 } from 'gsap';
+import gsap, { Power4 } from 'gsap';
 import { Div, Logo, Button, ButtonOutline } from '../../../shared';
 import {
   NavContainer,
@@ -10,8 +10,6 @@ import {
   TopLine,
   BottomLine,
 } from './nav.css';
-
-gsap.registerPlugin(CSSPlugin);
 
 const items = [
   {

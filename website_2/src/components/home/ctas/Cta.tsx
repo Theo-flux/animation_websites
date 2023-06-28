@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
-import gsap, { CSSPlugin, Power4 } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap, { Power4 } from 'gsap';
 import { ButtonIcon, Div } from '../../../shared';
 import {
   Bottom,
@@ -20,8 +19,6 @@ import Phonesm1 from '../../../assets/images/app-mockup/iPhone-sm-6.5-1.svg';
 import Phonesm2 from '../../../assets/images/app-mockup/iPhone-sm-6.5.svg';
 
 export default function Cta() {
-  gsap.registerPlugin(CSSPlugin, ScrollTrigger);
-
   // Top CTA Refs
   const phoneFigureRef = useRef(null);
   const titleRef = useRef(null);
