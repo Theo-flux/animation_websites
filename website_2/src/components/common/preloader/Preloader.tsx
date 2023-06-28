@@ -6,8 +6,7 @@ import {
   Progress,
   Follow,
 } from './preloader.css';
-import gsap, { CSSPlugin, Power4 } from 'gsap';
-gsap.registerPlugin(CSSPlugin);
+import gsap, { Power4 } from 'gsap';
 
 interface ILoaderProps {
   setAnimate: React.Dispatch<React.SetStateAction<boolean>>;

@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
-import gsap, { CSSPlugin, Power4 } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from 'gsap';
 import {
   FooterContainer,
   FooterWrapper,
@@ -118,7 +117,6 @@ const items = [
 ];
 
 export default function Footer() {
-  gsap.registerPlugin(CSSPlugin, ScrollTrigger);
   const footerbrandRef = useRef(null);
   const containerRef = useRef(null);
 

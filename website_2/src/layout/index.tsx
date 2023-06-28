@@ -13,10 +13,6 @@ export default function Layout({
   setAnimate,
   children,
 }: ILayoutProps) {
-  // window.onload = () => {
-  //   alert('ONLOAD');
-  // };
-
   return (
     <React.Fragment>
       {/* <Preloader setAnimate={setAnimate} /> */}

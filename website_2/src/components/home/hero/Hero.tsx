@@ -17,8 +17,7 @@ import Dashboard from '../../../assets/images/dash-test.svg';
 import Ring from '../../../assets/images/ring.svg';
 import { CTABtn, ButtonIcon } from '../../../shared';
 import { Brand } from '..';
-import gsap, { CSSPlugin, Power4 } from 'gsap';
-gsap.registerPlugin(CSSPlugin);
+import gsap, { Power4 } from 'gsap';
 
 interface IHeroProps {
   animate: boolean;
