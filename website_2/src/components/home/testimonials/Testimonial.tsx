@@ -94,6 +94,13 @@ export default function Testimonial() {
   const titleRef = useRef(null);
   const subTitleRef = useRef(null);
   const sliderRef = useRef(null);
+  const innerSliderRef = useRef(null);
+
+  const bottomCntRef = useRef(null);
+  const bottomTitleRef = useRef(null);
+  const bottomSubTitleRef = useRef(null);
+  const ctaBtnRef = useRef(null);
+  const circlesImgRef = useRef(null);
 
   const handleNext = () => {
     if (currentSlide < maxSlide) {
@@ -131,7 +138,7 @@ export default function Testimonial() {
     const tl = gsap.timeline();
 
     tl.fromTo(
-      sliderRef.current,
+      innerSliderRef.current,
       {
         opacity: 0,
         x: 80,
@@ -142,30 +149,75 @@ export default function Testimonial() {
         duration: 0.8,
         ease: Power4.easeInOut,
         scrollTrigger: {
-          // markers: true,
           start: 'top 90%',
           end: 'bottom 90%',
-          trigger: sliderRef.current,
+          trigger: innerSliderRef.current,
+          scrub: true,
+        },
+      }
+    )
+      .fromTo(
+        [titleRef.current, subTitleRef.current],
+        {
+          opacity: 0,
+          x: -80,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.3,
+          ease: Power4.easeInOut,
+          stagger: 0.1,
+          scrollTrigger: {
+            start: 'top 90%',
+            end: 'bottom 90%',
+            trigger: titleRef.current,
+            scrub: true,
+          },
+        }
+      )
+      .scrollTrigger?.kill();
+  };
+
+  const bottomContainerAnimation = () => {
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+      [
+        bottomCntRef.current,
+        bottomTitleRef.current,
+        bottomSubTitleRef.current,
+        ctaBtnRef.current,
+        document.querySelectorAll('.team'),
+      ],
+      {
+        opacity: 0,
+        y: 40,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: bottomCntRef.current,
+          start: 'top 90%',
+          end: 'bottom 90%',
           scrub: true,
         },
       }
     ).fromTo(
-      [titleRef.current, subTitleRef.current],
-      {
-        opacity: 0,
-        x: -80,
-      },
+      circlesImgRef.current,
+      { opacity: 0, width: '0px' },
       {
         opacity: 1,
-        x: 0,
-        duration: 0.3,
-        ease: Power4.easeInOut,
-        stagger: 0.1,
+        width: '50%',
+        duration: 0.8,
+        delay: 3,
         scrollTrigger: {
-          // markers: true,
+          trigger: circlesImgRef.current,
           start: 'top 90%',
           end: 'bottom 90%',
-          trigger: titleRef.current,
           scrub: true,
         },
       }
@@ -174,6 +226,7 @@ export default function Testimonial() {
 
   useEffect(() => {
     animateOnScroll();
+    bottomContainerAnimation();
   });
 
   return (
@@ -190,7 +243,7 @@ export default function Testimonial() {
           </Info>
 
           <SliderContainer ref={sliderRef}>
-            <Slider>
+            <Slider ref={innerSliderRef}>
               {testimonies.map((testimony, index) => {
                 const { avatar, rating, occupation, comment, name } = testimony;
                 const arr = [];
@@ -248,26 +301,30 @@ export default function Testimonial() {
           </SliderContainer>
         </TopContainer>
 
-        <BottomContainer>
+        <BottomContainer ref={bottomCntRef}>
           <InnerWrapper>
             <Info>
-              <Title>Grow your business presence on social media</Title>
-              <SubTitle>Join with more 1200+ happy customers</SubTitle>
+              <Title ref={bottomTitleRef}>
+                Grow your business presence on social media
+              </Title>
+              <SubTitle ref={bottomSubTitleRef}>
+                Join with more 1200+ happy customers
+              </SubTitle>
 
               <Row>
                 <TeamFigure>
-                  <TeamImg src={Member} alt="Member" />
-                  <TeamImg src={Member1} alt="Member1" />
-                  <TeamImg src={Member2} alt="Member2" />
-                  <TeamImg src={Member3} alt="Member3" />
-                  <TeamImg src={Member4} alt="Member4" />
+                  <TeamImg className="team" src={Member} alt="Member" />
+                  <TeamImg className="team" src={Member1} alt="Member1" />
+                  <TeamImg className="team" src={Member2} alt="Member2" />
+                  <TeamImg className="team" src={Member3} alt="Member3" />
+                  <TeamImg className="team" src={Member4} alt="Member4" />
                 </TeamFigure>
               </Row>
             </Info>
 
-            <CTABtn>Try for free</CTABtn>
+            <CTABtn ref={ctaBtnRef}>Try for free</CTABtn>
           </InnerWrapper>
-          <BgFigure>
+          <BgFigure ref={circlesImgRef}>
             <Img src={Circles} alt="circles" />
           </BgFigure>
         </BottomContainer>
