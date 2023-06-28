@@ -149,9 +149,9 @@ export default function Testimonial() {
         duration: 0.8,
         ease: Power4.easeInOut,
         scrollTrigger: {
+          trigger: innerSliderRef.current,
           start: 'top 90%',
           end: 'bottom 90%',
-          trigger: innerSliderRef.current,
           scrub: true,
         },
       }
@@ -169,9 +169,9 @@ export default function Testimonial() {
           ease: Power4.easeInOut,
           stagger: 0.1,
           scrollTrigger: {
+            trigger: titleRef.current,
             start: 'top 90%',
             end: 'bottom 90%',
-            trigger: titleRef.current,
             scrub: true,
           },
         }

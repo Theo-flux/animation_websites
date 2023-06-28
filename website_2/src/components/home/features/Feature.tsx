@@ -69,12 +69,7 @@ export default function Feature() {
   const topAnimation = () => {
     const tl = gsap.timeline();
     tl.fromTo(
-      [
-        divRef.current,
-        titleRef.current,
-        subTitleRef.current,
-        document.querySelectorAll('.card'),
-      ],
+      [divRef.current, titleRef.current, subTitleRef.current],
       {
         opacity: 0,
         y: 20,
@@ -90,6 +85,26 @@ export default function Feature() {
           // markers: true,
           start: 'top 90%',
           end: 'top top',
+          scrub: true,
+        },
+      }
+    ).fromTo(
+      [document.querySelectorAll('.card')],
+      {
+        opacity: 0,
+        y: 40,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: Power4.easeInOut,
+        scrollTrigger: {
+          trigger: document.querySelectorAll('.card'),
+          // markers: true,
+          start: 'top 90%',
+          end: 'bottom 90%',
           scrub: true,
         },
       }
