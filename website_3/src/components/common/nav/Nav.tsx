@@ -1,5 +1,6 @@
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import gsap, { Power4 } from 'gsap';
+import { useMediaQuery } from 'react-responsive';
 import { Div, Button, ButtonOutline } from '../../../shared';
 import {
   NavContainer,
@@ -9,29 +10,67 @@ import {
   Item,
   Hamburger,
   TopLine,
+  MidLine,
   BottomLine,
+  MobileOthers,
+  MobileOtherItem,
+  MobileInfo,
 } from './nav.css';
 
-const items = [
+const desktopItems = [
   {
     id: 'item-0',
-    name: 'button',
+    name: 'Product',
   },
   {
     id: 'item-0',
-    name: 'button',
+    name: 'Pricing',
   },
   {
     id: 'item-0',
-    name: 'button',
+    name: 'integrations',
   },
   {
     id: 'item-0',
-    name: 'button',
+    name: 'Resources',
   },
   {
     id: 'item-0',
-    name: 'button',
+    name: 'Company',
+  },
+];
+
+const mobileItems = [
+  {
+    id: 'mobile-item',
+    name: 'Product',
+  },
+  {
+    id: 'mobile-item',
+    name: 'Resources',
+  },
+  {
+    id: 'mobile-item',
+    name: 'Company',
+  },
+];
+
+const mobileOtherItems = [
+  {
+    id: 'mobile-item',
+    name: 'Get started',
+  },
+  {
+    id: 'mobile-item',
+    name: 'Login',
+  },
+  {
+    id: 'mobile-item',
+    name: 'Pricing',
+  },
+  {
+    id: 'mobile-item',
+    name: 'Integrations',
   },
 ];
 
@@ -40,52 +79,57 @@ interface INavProps {
 }
 
 export default function Nav({ animate }: INavProps) {
+  const isDesktop = useMediaQuery({ minWidth: 1024 });
   const navbarRef = useRef(null);
   const mobileRef = useRef(null);
   const logoRef = useRef(null);
-  const rightRef = useRef(null);
-  const leftRef = useRef(null);
+  const bottomRef = useRef(null);
+  const topRef = useRef(null);
+  const midRef = useRef(null);
   const [openNav, setOpennav] = useState(false);
 
   // Hamburger menu animation
   const forwardAnimate = () => {
     const tl = gsap.timeline();
 
-    tl.to(leftRef.current, {
-      margin: '0px',
-      backgroundColor: 'black',
+    tl.to(midRef.current, {
+      opacity: 0,
       duration: 0.1,
       ease: Power4.easeInOut,
     })
-      .to(
-        rightRef.current,
-        {
-          margin: '0px',
-          backgroundColor: 'black',
-          duration: 0.1,
-          ease: Power4.easeInOut,
-        },
-        0
-      )
-      .to(leftRef.current, {
+      .to(topRef.current, {
+        margin: '0px',
         rotate: '45deg',
+        backgroundColor: 'white',
         duration: 0.1,
         ease: Power4.easeInOut,
       })
-      .to(rightRef.current, {
+      .to(bottomRef.current, {
+        margin: '0px',
         rotate: '-45deg',
+        backgroundColor: 'white',
         duration: 0.1,
         ease: Power4.easeInOut,
       })
       .to(mobileRef.current, {
+        opacity: 1,
         left: '0px',
-        duration: 0.5,
-        yoyoEase: Power4.easeInOut,
+        duration: 1,
+        delay: -0.6,
+        ease: Power4.easeInOut,
+      })
+      .to(document.querySelectorAll('.mobile-item'), {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: Power4.easeInOut,
       })
       .to(logoRef.current, {
-        color: 'black',
-        duration: 0.5,
-        yoyoEase: Power4.easeInOut,
+        color: '#1B3743',
+        duration: 1,
+        delay: -0.6,
+        ease: Power4.easeInOut,
       });
   };
 
@@ -93,42 +137,44 @@ export default function Nav({ animate }: INavProps) {
   const backAnimate = () => {
     const tl = gsap.timeline();
 
-    tl.to(leftRef.current, {
-      rotate: '0deg',
+    tl.to(midRef.current, {
+      opacity: 1,
       duration: 0.1,
       ease: Power4.easeInOut,
     })
-      .to(rightRef.current, {
+      .to(topRef.current, {
         rotate: '0deg',
-        duration: 0.1,
-        ease: Power4.easeInOut,
-      })
-      .to(leftRef.current, {
         marginBottom: '0.15rem',
-        backgroundColor: 'white',
+        backgroundColor: '#2C5A6E',
         duration: 0.1,
         ease: Power4.easeInOut,
       })
-      .to(
-        rightRef.current,
-        {
-          marginTop: '0.15rem',
-          backgroundColor: 'white',
-          duration: 0.1,
-          ease: Power4.easeInOut,
-        },
-        0
-      )
+      .to(bottomRef.current, {
+        rotate: '0deg',
+        marginTop: '0.15rem',
+        backgroundColor: '#2C5A6E',
+        duration: 0.1,
+        ease: Power4.easeInOut,
+      })
+      .to(document.querySelectorAll('.mobile-item'), {
+        opacity: 0,
+        x: -40,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: Power4.easeInOut,
+      })
       .to(mobileRef.current, {
-        left: '-900px',
-        duration: 0.7,
-        yoyoEase: Power4.easeInOut,
+        opacity: 0,
+        left: '-1024px',
+        duration: 1,
+        delay: -0.6,
+        ease: Power4.easeInOut,
       })
       .to(logoRef.current, {
         color: '#1B3743',
-        duration: 0.7,
+        duration: 1,
         delay: -0.6,
-        yoyoEase: Power4.easeInOut,
+        ease: Power4.easeInOut,
       });
   };
 
@@ -160,17 +206,45 @@ export default function Nav({ animate }: INavProps) {
           <NavLogo ref={logoRef}>Brand Logo</NavLogo>
 
           <Hamburger onClick={() => setOpennav(!openNav)}>
-            <TopLine ref={leftRef}></TopLine>
-            <BottomLine ref={rightRef}></BottomLine>
+            <TopLine ref={topRef}></TopLine>
+            <MidLine ref={midRef}></MidLine>
+            <BottomLine ref={bottomRef}></BottomLine>
           </Hamburger>
 
           <ItemsContainer ref={mobileRef}>
-            {items.map((item, index) => {
-              return <Item key={index}>{item.name}</Item>;
-            })}
-
-            <ButtonOutline>Login</ButtonOutline>
-            <Button>Create account</Button>
+            {isDesktop ? (
+              <React.Fragment>
+                {desktopItems.map((item, index) => {
+                  return <Item key={index}>{item.name}</Item>;
+                })}
+                <ButtonOutline>Login</ButtonOutline>
+                <Button>Get started</Button>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                {mobileItems.map((item, index) => {
+                  return (
+                    <Item key={index} className={item.id}>
+                      {item.name}
+                    </Item>
+                  );
+                })}
+                <MobileOthers>
+                  {mobileOtherItems.map((item, index) => {
+                    return (
+                      <MobileOtherItem key={index} className={item.id}>
+                        {item.name}
+                      </MobileOtherItem>
+                    );
+                  })}
+                </MobileOthers>
+                <MobileInfo className="mobile-item">
+                  Brand Logo is a brand that was built and license by the
+                  Nigeria design agency 2023 with coding and development by
+                  credvent technolhoies
+                </MobileInfo>
+              </React.Fragment>
+            )}
           </ItemsContainer>
         </FlexWrapper>
       </Div>
