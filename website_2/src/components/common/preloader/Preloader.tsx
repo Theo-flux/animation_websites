@@ -70,7 +70,7 @@ export default function Loader({ setAnimate }: ILoaderProps) {
         delay: -1.6,
         ease: Power4.easeInOut,
         onComplete: () => {
-          console.log('animation completed!');
+          // console.log('animation completed!');
           setAnimate(true);
         },
       });
