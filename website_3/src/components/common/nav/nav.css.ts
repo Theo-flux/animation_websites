@@ -5,8 +5,8 @@ import { device, transition } from '../../../utils';
 export const NavContainer = styled.nav`
   background-color: white;
   position: fixed;
-  /* top: -100px; */
-  /* opacity: 0; */
+  top: -100px;
+  opacity: 0;
   width: 100%;
   z-index: 9;
 `;

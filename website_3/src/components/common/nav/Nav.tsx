@@ -193,8 +193,8 @@ export default function Nav({ animate }: INavProps) {
   };
 
   useEffect(() => {
-    isDesktop || openNav ? forwardAnimate() : backAnimate();
-  }, [openNav, isDesktop]);
+    openNav ? forwardAnimate() : backAnimate();
+  }, [openNav]);
 
   useEffect(() => {
     if (animate) navAnimation();
@@ -214,7 +214,7 @@ export default function Nav({ animate }: INavProps) {
 
           <React.Fragment>
             {isDesktop ? (
-              <DesktopItemsContainer ref={mobileRef}>
+              <DesktopItemsContainer>
                 {desktopItems.map((item, index) => {
                   return <Item key={index}>{item.name}</Item>;
                 })}
