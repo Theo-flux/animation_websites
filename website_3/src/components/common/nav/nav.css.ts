@@ -5,8 +5,8 @@ import { device, transition } from '../../../utils';
 export const NavContainer = styled.nav`
   background-color: white;
   position: fixed;
-  top: -100px;
-  opacity: 0;
+  /* top: -100px; */
+  /* opacity: 0; */
   width: 100%;
   z-index: 9;
 `;
@@ -57,35 +57,15 @@ export const BottomLine = styled.div`
   transform-origin: 20% -20%;
 `;
 
-export const ItemsContainer = styled.div`
-  position: absolute;
-  top: 0px;
-  left: -1400px;
-  width: 100%;
-  height: 100vh;
-  padding: 6rem 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  z-index: 2;
-  background-color: var(--S500);
-  /* border: 1px solid red; */
-
-  & > button {
-    width: 100%;
-  }
-
-  & > button:first-of-type {
-    margin-bottom: 1rem;
-  }
+export const DesktopItemsContainer = styled.div`
+  display: none;
 
   @media ${device.lg} {
     padding: 0rem;
     width: fit-content;
     height: fit-content;
     background-color: transparent;
-    position: static;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -98,6 +78,29 @@ export const ItemsContainer = styled.div`
       margin-bottom: 0rem;
       margin-right: 1rem;
     }
+  }
+`;
+
+export const MobileItemsContainer = styled.div`
+  position: absolute;
+  top: 0px;
+  left: -1400px;
+  width: 100%;
+  height: 100vh;
+  padding: 6rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 2;
+  background-color: var(--S500);
+
+  & > button {
+    width: 100%;
+  }
+
+  & > button:first-of-type {
+    margin-bottom: 1rem;
   }
 `;
 
