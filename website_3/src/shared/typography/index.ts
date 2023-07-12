@@ -16,7 +16,7 @@ export const Heading1 = styled.h1`
 export const Heading2 = styled.h2`
   text-align: center;
   font-family: Plus Jakarta Sans;
-  font-size: 22px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -82,3 +82,5 @@ export const StyledSmallText = styled.p`
   line-height: normal;
   text-transform: uppercase;
 `;
+
+

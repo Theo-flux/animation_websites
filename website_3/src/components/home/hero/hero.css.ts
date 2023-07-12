@@ -129,7 +129,7 @@ export const IntegrationContainer = styled.div`
 `;
 
 export const MedalFigure = styled.figure`
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
   width: 150px;
   display: flex;
   justify-content: space-between;
@@ -149,4 +149,22 @@ export const MedalImg = styled.img`
 export const StyledHeading2 = styled(Heading2)`
   color: var(--S500);
   text-align: center;
+`;
+
+export const BrandFigure = styled.figure`
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+export const BrandImg = styled.img`
+  width: fit-content;
+  transform: scale(0.8);
+
+  @media ${device.md} {
+    transform: scale(1);
+  }
 `;
