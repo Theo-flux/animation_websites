@@ -46,7 +46,7 @@ export const HeroSubHeading = styled.p`
   color: var(--S400);
   text-align: center;
   font-family: Plus Jakarta Sans;
-  font-size: 0.984rem;
+  font-size: 0.9rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
