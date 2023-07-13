@@ -50,9 +50,13 @@ export const Heading6 = styled.h6`
 
 export const BodyText = styled.p`
   color: #767475;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 300;
   line-height: 160%;
+
+  @media ${device.md} {
+    font-size: 16px;
+  }
 `;
 
 export const StyledBodyMD = styled.p`
@@ -77,10 +81,13 @@ export const Logo = styled.p`
 export const StyledSmallText = styled.p`
   color: var(--S400);
   font-family: Plus Jakarta Sans;
+  font-size: 0.875rem;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
+
+  @media ${device.md} {
+    font-size: 0.9rem;
+  }
 `;
-
-

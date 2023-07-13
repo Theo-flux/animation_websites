@@ -102,16 +102,19 @@ export const HeroCardIntegration = styled.div`
 
 export const Figure = styled.figure`
   position: relative;
-  top: -20px;
-  width: 70%;
+  top: -40px;
+  width: 90%;
 
   @media ${device.md} {
     top: -100px;
+    width: 70%;
   }
 `;
 
 export const Img = styled.img`
   width: 100%;
+
+
 `;
 
 export const IntegrationContainer = styled.div`
