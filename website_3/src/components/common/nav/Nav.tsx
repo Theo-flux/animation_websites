@@ -6,7 +6,8 @@ import {
   NavContainer,
   NavLogo,
   FlexWrapper,
-  ItemsContainer,
+  DesktopItemsContainer,
+  MobileItemsContainer,
   Item,
   Hamburger,
   TopLine,
@@ -211,17 +212,17 @@ export default function Nav({ animate }: INavProps) {
             <BottomLine ref={bottomRef}></BottomLine>
           </Hamburger>
 
-          <ItemsContainer ref={mobileRef}>
+          <React.Fragment>
             {isDesktop ? (
-              <React.Fragment>
+              <DesktopItemsContainer>
                 {desktopItems.map((item, index) => {
                   return <Item key={index}>{item.name}</Item>;
                 })}
                 <ButtonOutline>Login</ButtonOutline>
                 <Button>Get started</Button>
-              </React.Fragment>
+              </DesktopItemsContainer>
             ) : (
-              <React.Fragment>
+              <MobileItemsContainer ref={mobileRef}>
                 {mobileItems.map((item, index) => {
                   return (
                     <Item key={index} className={item.id}>
@@ -243,9 +244,9 @@ export default function Nav({ animate }: INavProps) {
                   Nigeria design agency 2023 with coding and development by
                   credvent technolhoies
                 </MobileInfo>
-              </React.Fragment>
+              </MobileItemsContainer>
             )}
-          </ItemsContainer>
+          </React.Fragment>
         </FlexWrapper>
       </Div>
     </NavContainer>

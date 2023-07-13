@@ -2,21 +2,28 @@ import styled from 'styled-components';
 import { device } from '../../utils';
 
 export const Heading1 = styled.h1`
+  font-family: Plus Jakarta Sans;
+  font-size: 36px;
   font-style: normal;
   font-weight: 700;
-  font-size: 36px;
-  color: black;
+  line-height: normal;
 
   @media ${device.md} {
-    font-size: 64px;
+    font-size: 52px;
   }
 `;
 
 export const Heading2 = styled.h2`
-  color: black;
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 150%;
+  text-align: center;
+  font-family: Plus Jakarta Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  @media ${device.md} {
+    font-size: 32px;
+  }
 `;
 
 export const Heading3 = styled.h3`
@@ -43,9 +50,13 @@ export const Heading6 = styled.h6`
 
 export const BodyText = styled.p`
   color: #767475;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 300;
   line-height: 160%;
+
+  @media ${device.md} {
+    font-size: 16px;
+  }
 `;
 
 export const StyledBodyMD = styled.p`
@@ -64,5 +75,19 @@ export const Logo = styled.p`
 
   @media ${device.md} {
     font-size: 1.25rem;
+  }
+`;
+
+export const StyledSmallText = styled.p`
+  color: var(--S400);
+  font-family: Plus Jakarta Sans;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+
+  @media ${device.md} {
+    font-size: 0.9rem;
   }
 `;

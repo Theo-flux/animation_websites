@@ -52,12 +52,33 @@ export const ButtonOutline = styled(ButtonReset)`
 
 export const CTABtn = styled(ButtonReset)`
   padding: 1rem 2rem;
-  color: var(--primary);
-  background-color: white;
+  color: var(--white);
+  background-color: var(--S300);
+  ${transition}
 
   &:hover {
-    color: white;
-    background-color: var(--primary);
+    color: var(--S300);
+    background-color: var(--S50);
+  }
+`;
+
+export const CTABtnOutline = styled(ButtonReset)`
+  padding: 1rem 2rem;
+  color: var(--white);
+  color: var(--S300);
+  background-color: transparent;
+  outline: 1px solid var(--S300);
+  outline-offset: -1px;
+  ${transition}
+
+  @media ${device.md} {
+    color: var(--S300);
+
+    &:hover {
+      color: var(--S300);
+      background-color: var(--S50);
+      outline: 1px solid var(--S50);
+    }
   }
 `;
 
