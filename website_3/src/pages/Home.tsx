@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Layout from '../layout';
 import {
   Capability,
+  Features,
   Hero,
   Marketing,
   Testimonials,
@@ -19,6 +20,7 @@ function Home() {
       <Hero />
       <Capability />
       <Tracker />
+      <Features />
       <Testimonials />
       <Marketing />
     </Layout>
