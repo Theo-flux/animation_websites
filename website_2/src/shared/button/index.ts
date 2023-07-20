@@ -68,8 +68,8 @@ export const ButtonIconContainer = styled(
   ButtonReset
 )<ButtonIconContainerProps>`
   padding: 1rem;
-  color: ${props => (props.color ? `${props.color}` : `var(--primary)`)};
-  background-color: transparent;
+  color: ${props => (props.color ? `${props.color}` : `var(--white)`)};
+  background-color: var(--primary-darker);
   ${transition}
 
   &:hover {

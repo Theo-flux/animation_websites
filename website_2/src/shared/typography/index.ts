@@ -14,9 +14,13 @@ export const Heading1 = styled.h1`
 
 export const Heading2 = styled.h2`
   color: black;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 150%;
+
+  @media ${device.md} {
+    font-size: 32px;
+  }
 `;
 
 export const Heading3 = styled.h3`

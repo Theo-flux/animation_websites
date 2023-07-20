@@ -3,9 +3,15 @@ import { FiCheckCircle } from 'react-icons/fi';
 import { Heading2, Heading5, BodyText } from '../../../shared';
 import { device } from '../../../utils';
 
-export const CtaContainer = styled.div`
-  background-color: white;
+type WrapperProps = {
+  bgColor: string;
+};
+
+export const CtaContainer = styled.div``;
+
+export const Wrapper = styled.div<WrapperProps>`
   padding: 4rem 0rem;
+  ${props => `background-color: ${props.bgColor}`};
 `;
 
 export const Top = styled.div`
@@ -45,6 +51,8 @@ export const Info = styled.div`
   max-width: 465px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   @media ${device.lg} {
     justify-content: flex-start;
@@ -52,67 +60,45 @@ export const Info = styled.div`
   }
 `;
 
-export const Figure = styled.figure`
-  background: linear-gradient(270deg, rgba(234, 239, 241, 0.34) 0%, white 100%);
-  width: 200px;
-  height: 200px;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @media ${device.md} {
-    width: 300px;
-    height: 300px;
-  }
-
-  @media ${device.lg} {
-    width: 500px;
-    height: 500px;
-  }
-
-  @media ${device.xl} {
-    width: 600px;
-    height: 600px;
-  }
-`;
-
-export const Img = styled.img`
-  width: 100%;
-`;
-
 export const PhoneFigure = styled.figure`
   position: relative;
   top: 0;
   left: 0;
-  background: linear-gradient(270deg, rgba(234, 239, 241, 0.34) 0%, white 100%);
-  width: 200px;
-  height: 200px;
+  /* background: linear-gradient(270deg, rgba(234, 239, 241, 0.34) 0%, white 100%); */
+  background: linear-gradient(270deg, #0fac8114 0%, #ffffff14 100%);
+  width: 300px;
+  height: 300px;
   border-radius: 100%;
+  margin-bottom: 4rem;
 
   & > img {
     position: absolute;
-    width: 40%;
+    width: 50%;
     object-fit: contain;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  }
+
+  & > img:first-of-type {
+    top: 65%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+  }
+
+  & > img:last-of-type {
     top: 50%;
-    left: 50%;
+    left: 60%;
     transform: translate(-50%, -50%);
   }
 
   @media ${device.md} {
     width: 300px;
     height: 300px;
-
-    & > img {
-    }
+    margin-bottom: 0rem;
   }
 
   @media ${device.lg} {
     width: 500px;
     height: 500px;
-
-    & > img {
-    }
   }
 
   @media ${device.xl} {
@@ -123,22 +109,7 @@ export const PhoneFigure = styled.figure`
 
 export const PhoneImg1 = styled.img``;
 
-export const PhoneImg2 = styled.img`
-  rotate: -30deg;
-  transform-origin: -30px 70px;
-
-  @media ${device.md} {
-    transform-origin: -50px 90px;
-  }
-
-  @media ${device.lg} {
-    transform-origin: -100px 180px;
-  }
-
-  @media ${device.xl} {
-    transform-origin: -100px 250px;
-  }
-`;
+export const PhoneImg2 = styled.img``;
 
 type TTitleProps = {
   color?: string;

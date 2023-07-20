@@ -4,17 +4,15 @@ import { ButtonIcon, Div } from '../../../shared';
 import {
   Bottom,
   CtaContainer,
+  Wrapper,
   Top,
   Info,
-  Figure,
   PhoneFigure,
   PhoneImg1,
   PhoneImg2,
-  Img,
   Title,
   SubTitle,
 } from './cta.css';
-import Desktop from '../../../assets/images/desktop-mockup.svg';
 import Phonesm1 from '../../../assets/images/app-mockup/iPhone-sm-6.5-1.svg';
 import Phonesm2 from '../../../assets/images/app-mockup/iPhone-sm-6.5.svg';
 
@@ -43,14 +41,14 @@ export default function Cta() {
       {
         opacity: 1,
         x: 0,
-        duration: 0.8,
+        duration: 0.3,
         ease: Power4.easeInOut,
         scrollTrigger: {
           // markers: true,
           start: 'top 90%',
           end: 'top top',
           trigger: phoneFigureRef.current,
-          scrub: true,
+          scrub: 1,
         },
       }
     ).fromTo(
@@ -64,13 +62,13 @@ export default function Cta() {
         x: 0,
         duration: 0.3,
         ease: Power4.easeInOut,
-        stagger: 0.1,
+        stagger: 0.05,
         scrollTrigger: {
           // markers: true,
           start: 'top 90%',
           end: 'top top',
           trigger: phoneFigureRef.current,
-          scrub: true,
+          scrub: 1,
         },
       }
     );
@@ -88,14 +86,14 @@ export default function Cta() {
       {
         opacity: 1,
         x: 0,
-        duration: 0.8,
+        duration: 0.3,
         ease: Power4.easeInOut,
         scrollTrigger: {
           // markers: true,
           start: 'top 90%',
           end: 'top top',
           trigger: desktopFigureRef.current,
-          scrub: true,
+          scrub: 1,
         },
       }
     ).fromTo(
@@ -109,13 +107,13 @@ export default function Cta() {
         x: 0,
         duration: 0.3,
         ease: Power4.easeInOut,
-        stagger: 0.1,
+        stagger: 0.01,
         scrollTrigger: {
           // markers: true,
           start: 'top 90%',
           end: 'top top',
           trigger: desktopFigureRef.current,
-          scrub: true,
+          scrub: 1,
         },
       }
     );
@@ -128,46 +126,54 @@ export default function Cta() {
 
   return (
     <CtaContainer>
-      <Div>
-        <Top>
-          <PhoneFigure ref={phoneFigureRef}>
-            <PhoneImg2 src={Phonesm2} alt={'phone-1-mockup'} />
-            <PhoneImg1 src={Phonesm1} alt={'phone-2-mockup'} />
-          </PhoneFigure>
+      <Wrapper bgColor={`var(--primary-light)`}>
+        <Div>
+          <Top>
+            <PhoneFigure ref={phoneFigureRef}>
+              <PhoneImg2 src={Phonesm2} alt={'phone-1-mockup'} />
+              <PhoneImg1 src={Phonesm1} alt={'phone-2-mockup'} />
+            </PhoneFigure>
 
-          <Info>
-            <Title color="var(--primary)" ref={titleRef}>
-              Important feature for your business
-            </Title>
-            <SubTitle ref={subTitleRef}>
-              Graphs displaying your performance for metrics like follower
-              evolution, average engagement rate per post and reach and
-              impressions to give you the insights.
-            </SubTitle>
-            <div ref={btnRef}>
-              <ButtonIcon text="Text button" />
-            </div>
-          </Info>
-        </Top>
-        <Bottom>
-          <Info>
-            <Title ref={bottomTitleRef}>
-              Schedule Your Post Whenever You Want
-            </Title>
-            <SubTitle ref={bottomSubTitleRef}>
-              Publish your content automatically to ensure that your content
-              reaches the right people. Built-in features such as
-            </SubTitle>
-            <div ref={bottomBtnRef}>
-              <ButtonIcon text="Text button" color="black" />
-            </div>
-          </Info>
+            <Info>
+              <Title color="var(--primary)" ref={titleRef}>
+                Important feature for your business
+              </Title>
+              <SubTitle ref={subTitleRef}>
+                Graphs displaying your performance for metrics like follower
+                evolution, average engagement rate per post and reach and
+                impressions to give you the insights.
+              </SubTitle>
+              <div ref={btnRef}>
+                <ButtonIcon text="Text button" />
+              </div>
+            </Info>
+          </Top>
+        </Div>
+      </Wrapper>
 
-          <Figure ref={desktopFigureRef}>
-            <Img src={Desktop} alt={'desktop-mockup'} />
-          </Figure>
-        </Bottom>
-      </Div>
+      <Wrapper bgColor={`#F9FFFD`}>
+        <Div>
+          <Bottom>
+            <Info>
+              <Title ref={bottomTitleRef}>
+                Schedule Your Post Whenever You Want
+              </Title>
+              <SubTitle ref={bottomSubTitleRef}>
+                Publish your content automatically to ensure that your content
+                reaches the right people. Built-in features such as
+              </SubTitle>
+              <div ref={bottomBtnRef}>
+                <ButtonIcon text="Text button" />
+              </div>
+            </Info>
+
+            <PhoneFigure ref={desktopFigureRef}>
+              <PhoneImg2 src={Phonesm2} alt={'phone-1-mockup'} />
+              <PhoneImg1 src={Phonesm1} alt={'phone-2-mockup'} />
+            </PhoneFigure>
+          </Bottom>
+        </Div>
+      </Wrapper>
     </CtaContainer>
   );
 }
