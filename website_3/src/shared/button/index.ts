@@ -82,23 +82,17 @@ export const CTABtnOutline = styled(ButtonReset)`
   }
 `;
 
-type ButtonIconContainerProps = {
-  color?: string;
-};
-
 export const StyledArrowIcon = styled(HiArrowNarrowRight)``;
 
-export const ButtonIconContainer = styled(
-  ButtonReset
-)<ButtonIconContainerProps>`
-  padding: 1rem;
-  color: ${props => (props.color ? `${props.color}` : `var(--primary)`)};
-  background-color: transparent;
+export const ButtonIconContainer = styled(ButtonReset)`
+  padding: 1rem 2rem;
+  color: white;
+  background-color: var(--S300);
   ${transition}
 
   &:hover {
-    color: white;
-    background-color: var(--primary);
+    color: var(--S300);
+    background-color: var(--S50);
   }
   display: flex;
   justify-content: center;

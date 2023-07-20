@@ -69,7 +69,7 @@ export const TrackerCard = styled.div`
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
-  padding: 1rem 1rem 2rem 1rem;
+  padding: 1rem 1rem 3rem 1rem;
 
   @media ${device.md} {
     padding: 0rem;

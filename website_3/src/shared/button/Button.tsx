@@ -13,3 +13,4 @@ export const ButtonIcon = ({ text, color }: IBtnprops) => {
     </ButtonIconContainer>
   );
 };
+
