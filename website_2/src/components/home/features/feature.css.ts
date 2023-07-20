@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { Heading2, Heading5, BodyText } from '../../../shared';
 import { RiCommandFill } from 'react-icons/ri';
+import { transition } from '../../../utils';
 
 export const FeatureContainer = styled.div`
-  background-color: var(--primary);
+  background-color: var(--white);
   padding: 4rem 0rem;
 
   & > div {
@@ -20,14 +21,14 @@ export const Top = styled.div`
 
 export const Title = styled(Heading2)`
   text-align: center;
-  color: white;
+  color: black;
   margin-bottom: 1rem;
 `;
 
 export const SubTitle = styled(BodyText)`
   text-align: center;
   max-width: 579px;
-  color: white;
+  color: black;
 `;
 
 export const Bottom = styled.div`
@@ -39,6 +40,7 @@ export const Bottom = styled.div`
 `;
 
 export const CardContainer = styled.div`
+  cursor: pointer;
   background-color: white;
   max-width: 260px;
   height: 300px;
@@ -48,13 +50,19 @@ export const CardContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding: 24px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  ${transition}
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
 `;
 
 export const IconCase = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--G50);
+  background-color: var(--primary-light);
   width: 40px;
   height: 40px;
   border-radius: 8px;

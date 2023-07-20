@@ -1,6 +1,5 @@
-import gsap, { CSSPlugin, Power4 } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useState, useRef, useEffect } from 'react';
+import gsap, { Power4 } from 'gsap';
 import {
   TestimonialContainer,
   TopContainer,
@@ -138,7 +137,7 @@ export default function Testimonial() {
     const tl = gsap.timeline();
 
     tl.fromTo(
-      innerSliderRef.current,
+      sliderRef.current,
       {
         opacity: 0,
         x: 80,
@@ -149,7 +148,7 @@ export default function Testimonial() {
         duration: 0.8,
         ease: Power4.easeInOut,
         scrollTrigger: {
-          trigger: innerSliderRef.current,
+          trigger: sliderRef.current,
           start: 'top 90%',
           end: 'bottom 90%',
           scrub: true,
@@ -224,10 +223,10 @@ export default function Testimonial() {
     );
   };
 
-  useEffect(() => {
-    animateOnScroll();
-    bottomContainerAnimation();
-  });
+  // useEffect(() => {
+  //   animateOnScroll();
+  //   bottomContainerAnimation();
+  // });
 
   return (
     <TestimonialContainer>

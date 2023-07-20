@@ -24,6 +24,7 @@ type TPageProps = {
 export const TestimonialContainer = styled.div`
   width: 100%;
   padding: 4rem 0rem;
+  background-color: var(--primary-light);
 `;
 
 export const TopContainer = styled.div`
@@ -170,7 +171,7 @@ export const Slide = styled.div`
   height: 320px;
   padding: 18px;
   transition: all 0.5s;
-  background-color: white;
+  background-color: transparent;
   /* border: 1px solid magenta; */
 
   @media ${device.base} {
@@ -213,7 +214,7 @@ export const Quote = styled.p`
 `;
 
 export const SlideName = styled(Heading5)`
-  color: var(--primary);
+  color: var(--primary-darker);
 `;
 
 export const SlideRole = styled(BodyText)`
@@ -272,8 +273,8 @@ export const Page = styled.div<TPageProps>`
   border-radius: 10px;
   background: ${props =>
     props.index == props.currentSlide
-      ? `var(--primary)`
-      : `var(--foundation-primary-light, #e7f7f2)`};
+      ? `var(--primary-darker)`
+      : `var(--G75)`};
   margin-right: 0.35rem;
   ${transition}
 `;
@@ -292,7 +293,7 @@ export const StyledPrevArrow = styled(MdOutlineArrowBackIos)`
 
 export const ArrowContainer = styled.div<TArrowProps>`
   cursor: pointer;
-  background-color: ${props => (props.active ? `var(--primary)` : `white`)};
+  background-color: ${props => (props.active ? `var(--primary-darker)` : `transparent`)};
 
   & > ${StyledNextArrow}, & > ${StyledPrevArrow} {
     color: ${props => (props.active ? `white` : `var(--primary)`)};
@@ -309,7 +310,7 @@ export const ArrowContainer = styled.div<TArrowProps>`
   /* border: 1px solid magenta; */
 
   &:hover {
-    background-color: var(--primary);
+    background-color: var(--primary-darker);
   }
 
   &:hover ${StyledNextArrow}, &:hover ${StyledPrevArrow} {
