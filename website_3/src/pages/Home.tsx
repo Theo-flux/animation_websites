@@ -2,7 +2,13 @@ import { useState } from 'react';
 import gsap, { CSSPlugin } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Layout from '../layout';
-import { Capability, Hero, Marketing } from '../components';
+import {
+  Capability,
+  Hero,
+  Marketing,
+  Testimonials,
+  Tracker,
+} from '../components';
 
 function Home() {
   gsap.registerPlugin(CSSPlugin, ScrollTrigger);
@@ -12,6 +18,8 @@ function Home() {
     <Layout setAnimate={setAnimate} animate={animate}>
       <Hero />
       <Capability />
+      <Tracker />
+      <Testimonials />
       <Marketing />
     </Layout>
   );

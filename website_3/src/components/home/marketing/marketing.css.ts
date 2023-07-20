@@ -3,7 +3,11 @@ import { device } from '../../../utils';
 import { BodyText, Heading2, StyledSmallText } from '../../../shared';
 
 export const MarketingContainer = styled.div`
-  padding: 4rem 0rem;
+  padding: 6rem 0rem 4rem 0rem;
+
+  @media ${device.md} {
+    padding: 10rem 0rem 4rem 0rem;
+  }
 `;
 
 export const Wrapper = styled.div`
