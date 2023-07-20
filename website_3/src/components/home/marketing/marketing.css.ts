@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { device } from '../../../utils';
 import { BodyText, Heading2, StyledSmallText } from '../../../shared';
 
-export const CapabilityContainer = styled.div`
-  padding: 2rem 0rem 4rem 0rem;
+export const MarketingContainer = styled.div`
+  padding: 6rem 0rem 4rem 0rem;
 
   @media ${device.md} {
-    padding: 8rem 0rem 4rem 0rem;
+    padding: 10rem 0rem 4rem 0rem;
   }
 `;
 
@@ -37,9 +37,8 @@ export const InfoSection = styled.div`
 `;
 
 export const FigureSection = styled.figure`
-  background-color: var(--S50);
+  background-color: var(--S500);
   width: 230px;
-  height: 276px;
   margin-bottom: 3rem;
 
   display: flex;
@@ -49,29 +48,39 @@ export const FigureSection = styled.figure`
 
   @media ${device.md} {
     width: 400px;
-    height: 400px;
   }
 
   @media ${device.lg} {
     width: 450px;
-    height: 450px;
   }
 
   @media ${device.xl} {
-    width: 566px;
-    height: 684px;
+    width: 500px;
   }
 `;
 
 export const Image = styled.img`
-  width: 70%;
+  width: 100%;
+  position: relative;
+  top: -20px;
+  left: -20px;
+
+  @media ${device.md} {
+    top: -40px;
+    left: -40px;
+  }
+
+  @media ${device.xl} {
+    top: -60px;
+    left: -60px;
+  }
 `;
 
 export const StyledTinyText = styled(StyledSmallText)`
   color: var(--S300);
   text-align: center;
 
-  @media ${device.lg} {
+  @media ${device.md} {
     text-align: left;
   }
 `;
@@ -91,22 +100,27 @@ export const Text = styled(BodyText)`
   margin-bottom: 0.5rem;
 
   @media ${device.lg} {
-    max-width: 100%;
     text-align: left;
   }
 `;
 
-export const BtnContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-
-  & > button:first-of-type {
-    margin-right: 1rem;
-  }
+export const UL = styled.ul`
+  padding: 0rem;
+  list-style-position: inside;
+  color: #6b6b6b;
+  width: 100%;
+  max-width: fit-content;
+  margin: 0 auto;
 
   @media ${device.lg} {
-    justify-content: start;
+    max-width: 100%;
   }
+`;
+
+export const LI = styled.li`
+  padding: 0rem;
+  font-family: Plus Jakarta Sans;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 24px;
 `;
