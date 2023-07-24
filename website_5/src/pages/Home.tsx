@@ -2,7 +2,7 @@ import { useState } from 'react';
 import gsap, { CSSPlugin } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Layout from '../layout';
-import { Advantage, Hero } from '../components';
+import { Advantage, Discount, Hero } from '../components';
 
 function Home() {
   gsap.registerPlugin(CSSPlugin, ScrollTrigger);
@@ -12,6 +12,7 @@ function Home() {
     <Layout setAnimate={setAnimate} animate={animate}>
       <Hero />
       <Advantage />
+      <Discount />
     </Layout>
   );
 }
