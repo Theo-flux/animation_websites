@@ -24,7 +24,7 @@ export const FlexWrapper = styled.div`
 `;
 
 export const NavLogo = styled(Logo)`
-  color: white;
+  color: black;
 `;
 
 export const IconWrapper = styled.div`
