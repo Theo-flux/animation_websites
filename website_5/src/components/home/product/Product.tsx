@@ -23,8 +23,39 @@ import {
   InstructionText,
   QtyRow,
   Number,
+  BottomStyledHeading,
+  ContentCard,
+  ProductContentCard,
+  ContentImage,
+  ContentDesc,
+  ContentName,
+  BottomRow
 } from './product.css';
 import ProductEclipse from '../../../assets/images/eclipse.png';
+import ContentOne from '../../../assets/images/content_1.png';
+import ContentTwo from '../../../assets/images/content_2.png';
+import ContentThree from '../../../assets/images/content_3.png';
+
+const productContent = [
+  {
+    id: 'content',
+    image: ContentOne,
+    desc: 'Sweet smelling',
+    name: 'Tumeric',
+  },
+  {
+    id: 'content',
+    image: ContentTwo,
+    desc: 'Sweet smelling',
+    name: 'Ginger',
+  },
+  {
+    id: 'content',
+    image: ContentThree,
+    desc: 'Sweet smelling',
+    name: 'Ashwagandha',
+  },
+];
 
 export default function Product() {
   const [isInstructionOpened, setIsinstructionOpened] = useState(false);
@@ -110,7 +141,24 @@ export default function Product() {
             </ProductInfo>
           </Top>
 
-          <Bottom></Bottom>
+          <Bottom>
+            <BottomRow>
+              <BottomStyledHeading>What's Inside?</BottomStyledHeading>
+              <Title>Vitality & Balance</Title>
+            </BottomRow>
+            <ContentCard>
+              {productContent.map((content, index) => {
+                const { image, desc, name } = content;
+                return (
+                  <ProductContentCard key={index}>
+                    <ContentImage src={image} alt={'content image'} />
+                    <ContentDesc>{desc}</ContentDesc>
+                    <ContentName>{name}</ContentName>
+                  </ProductContentCard>
+                );
+              })}
+            </ContentCard>
+          </Bottom>
         </ProductWrapper>
       </Div>
     </ProductContainer>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { device, transition } from '../../../utils';
-import { Heading1, Heading2, BodyText } from '../../../shared';
+import { Heading1, Heading2, BodyText, Heading3 } from '../../../shared';
 import { RiAddFill, RiSubtractLine } from 'react-icons/ri';
 
 export const ProductContainer = styled.section`
@@ -41,7 +41,11 @@ export const Top = styled.div`
   }
 `;
 
-export const Bottom = styled.div``;
+export const Bottom = styled.div`
+  width: 100%;
+  max-width: 1000px;
+  margin: 4rem auto;
+`;
 
 export const ProductFigure = styled.figure`
   width: 100%;
@@ -207,4 +211,76 @@ export const Number = styled.div`
   color: var(--primary);
   font-weight: 600;
   margin: 0rem 0.5rem;
+`;
+
+export const BottomStyledHeading = styled(Heading2)`
+  color: var(--primary);
+  font-weight: 400;
+`;
+
+export const ContentCard = styled.div`
+  border-radius: 8px;
+  margin-top: 2rem;
+  width: 100%;
+  background-color: var(--primary-light);
+  padding: 4rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media ${device.md} {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+`;
+
+export const BottomRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media ${device.md} {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+`;
+
+export const ProductContentCard = styled.div`
+  &:not(:last-of-type) {
+    margin-bottom: 2rem;
+  }
+
+  @media ${device.md} {
+    &:not(:last-of-type) {
+      margin-bottom: 0rem;
+    }
+  }
+`;
+export const ContentImage = styled.img`
+  width: 100%;
+
+  @media ${device.md} {
+    width: 100%;
+  }
+`;
+export const ContentDesc = styled(BodyText)`
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 0.5rem 0rem;
+
+  @media ${device.md} {
+    text-align: left;
+  }
+`;
+export const ContentName = styled(Heading3)`
+  font-size: 1.5rem;
+  text-align: center;
+
+  @media ${device.md} {
+    text-align: left;
+  }
 `;
