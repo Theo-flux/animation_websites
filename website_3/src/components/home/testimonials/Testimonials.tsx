@@ -20,6 +20,7 @@ import TestifierOne from '../../../assets/images/testifiers/testifier_1.png';
 import TestifierTwo from '../../../assets/images/testifiers/testifier_2.jpg';
 
 export default function Testimonials() {
+  //TODO: Testimonial Slider effect
   return (
     <TestimonyContainer>
       <Wrapper>
