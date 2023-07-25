@@ -1,39 +1,53 @@
-import React from 'react';
-import { testifiersData } from './data';
+// import { testifiersData } from './data';
 import {
+  TestimonyContainer,
+  Wrapper,
+  Carousel,
   MainFigure,
   MainImage,
   NextFigure,
-  NextImage,
-  TestifierCard,
-  TestimonyContainer,
-  TestimonyWrapper,
   Overlay,
-  Content,
+  NextImage,
+  TestimonyCard,
+  SmallCircle,
+  BigCircle,
+  PaginationContainer,
+  Group,
+  Text,
+  Title,
 } from './testimonials.css';
+import TestifierOne from '../../../assets/images/testifiers/testifier_1.png';
+import TestifierTwo from '../../../assets/images/testifiers/testifier_2.jpg';
 
 export default function Testimonials() {
   return (
     <TestimonyContainer>
-      {/* <TestimonyWrapper>
-        {testifiersData.map((testifier, idx) => {
-          const { mainImage, nextImage } = testifier;
-          return (
-            <Content key={idx}>
-              <MainFigure>
-                <MainImage src={mainImage} alt="main" />
-              </MainFigure>
-              <NextFigure>
-                <Overlay></Overlay>
-                <NextImage src={nextImage} alt="next" />
-              </NextFigure>
-            </Content>
-          );
-        })}
+      <Wrapper>
+        <Carousel>
+          <MainFigure>
+            <MainImage src={TestifierOne} alt="main image" />
+          </MainFigure>
+          <NextFigure>
+            <NextImage src={TestifierTwo} alt="main image" />
+            <Overlay></Overlay>
+          </NextFigure>
+        </Carousel>
+        <TestimonyCard>
+          <SmallCircle></SmallCircle>
+          <BigCircle></BigCircle>
+          <Group>
+            <Text>
+              I used nearly every business platform in the market and I always
+              come back to Brand Name. It provides the most user-friendly
+              interface and has the in-depth Marketing I need.
+            </Text>
 
-        <TestifierCard>card</TestifierCard>
-      </TestimonyWrapper> */}
-      Testimonials
+            <Title>Maryjane Awe</Title>
+            <Text>Lead Facilitator Teddy</Text>
+          </Group>
+          <PaginationContainer></PaginationContainer>
+        </TestimonyCard>
+      </Wrapper>
     </TestimonyContainer>
   );
 }

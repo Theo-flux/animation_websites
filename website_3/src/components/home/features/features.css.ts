@@ -74,8 +74,8 @@ export const IconCase = styled.span`
   border-radius: 100px;
 `;
 
-export const StyledCommandIcon = styled(PiPuzzlePieceDuotone)`
-  color: var(--N500);
+export const StyledPuzzleIcon = styled(PiPuzzlePieceDuotone)`
+  color: #29CBED;
   font-size: 1.7rem;
 `;
 

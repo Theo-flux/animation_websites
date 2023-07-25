@@ -4,9 +4,8 @@ import { BodyText, Heading2, StyledSmallText } from '../../../shared';
 
 export const MarketingContainer = styled.div`
   padding: 6rem 0rem 4rem 0rem;
-
   @media ${device.md} {
-    padding: 10rem 0rem 4rem 0rem;
+    padding: 8rem 0rem 2rem 0rem;
   }
 `;
 
