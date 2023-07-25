@@ -7,7 +7,7 @@ import {
   StyledHeading,
   CardContainer,
   IconCase,
-  StyledCommandIcon,
+  StyledPuzzleIcon,
   CardTitle,
   CardText,
   CardLink
@@ -49,7 +49,7 @@ const Card = ({ feat }: ICardProps) => {
   return (
     <CardContainer className={id}>
       <IconCase>
-        <StyledCommandIcon />
+        <StyledPuzzleIcon />
       </IconCase>
 
       <CardTitle>{title}</CardTitle>

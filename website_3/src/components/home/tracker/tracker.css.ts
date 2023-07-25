@@ -137,8 +137,7 @@ export const CardFigure = styled.figure`
 export const CardImage = styled.img`
   position: relative;
   left: 0px;
-  filter: drop-shadow(0 0 105rem rgba(9, 111, 184, 0.15));
-  scale: 0.6;
+  box-shadow: rgba(9, 111, 184, 0.15) 0px 10px 50px;
 
   &:first-of-type {
     top: -20px;

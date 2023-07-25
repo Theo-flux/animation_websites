@@ -149,14 +149,15 @@ const bottomItem = [
 ];
 
 export default function Footer() {
-  const footerbrandRef = useRef(null);
+  const footerTopRef = useRef(null);
+  const footerBottomRef = useRef(null);
   const containerRef = useRef(null);
 
   const onScrollFooter = () => {
     const tl = gsap.timeline();
 
     tl.fromTo(
-      [footerbrandRef.current, document.querySelectorAll('.footer')],
+      [footerTopRef.current, footerBottomRef.current],
       {
         opacity: 0,
         y: 20,
@@ -180,10 +181,10 @@ export default function Footer() {
     onScrollFooter();
   });
   return (
-    <FooterContainer>
+    <FooterContainer ref={containerRef}>
       <Div>
-        <FooterWrapper ref={containerRef}>
-          <FooterSection ref={footerbrandRef}>
+        <FooterWrapper ref={footerTopRef}>
+          <FooterSection>
             <Logo>Brand Logo</Logo>
             <Text>JOIN OUR COMMUNITIES ON</Text>
             <Row>
@@ -225,7 +226,7 @@ export default function Footer() {
           </FooterGrid>
         </FooterWrapper>
 
-        <FooterBottom>
+        <FooterBottom ref={footerBottomRef}>
           <FooterBottomItem>
             <Copyright href="/">© Credvnet 2021-2023</Copyright>
           </FooterBottomItem>
