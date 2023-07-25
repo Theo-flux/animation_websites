@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../../../utils';
-import { BodyText, Heading3 } from '../../../shared';
+import { BodyText, Heading2 } from '../../../shared';
 
 export const TestimonyContainer = styled.section`
   width: 100%;
@@ -22,10 +22,15 @@ export const Carousel = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0rem;
+
+  @media ${device.md} {
+    gap: 0rem;
+  }
 `;
 
 export const MainFigure = styled.figure`
-  width: 90%;
+  width: 85%;
   height: 300px;
   display: flex;
   overflow: hidden;
@@ -51,7 +56,7 @@ export const MainImage = styled.img`
 `;
 
 export const NextFigure = styled.figure`
-  width: 10%;
+  width: 15%;
   height: 300px;
   display: flex;
   overflow: hidden;
@@ -94,8 +99,8 @@ export const Overlay = styled.div`
 export const TestimonyCard = styled.div`
   position: relative;
   margin-top: 20px;
-  width: 80%;
-  height: 240px;
+  width: 85%;
+  height: 300px;
   background-color: var(--S300);
   overflow: hidden;
   padding: 2rem;
@@ -152,7 +157,8 @@ export const BigCircle = styled.div`
 
 export const Group = styled.div``;
 
-export const Title = styled(Heading3)`
+export const Title = styled(Heading2)`
+  text-align: left;
   margin-top: 1rem;
   margin-bottom: 0.3rem;
   color: white;

@@ -35,7 +35,7 @@ export default function Testimonials() {
     nextSlideWidth = nextFigureRef.current.children[0].clientWidth;
   }
 
-  const handleSlide = (arg: number) => {
+  function handleSlide(arg: number) {
     setActiveNum(arg);
 
     if (mainFigureRef.current) {
@@ -45,7 +45,7 @@ export default function Testimonials() {
     if (nextFigureRef.current) {
       nextFigureRef.current.scrollLeft = activeNum * nextSlideWidth;
     }
-  };
+  }
 
   return (
     <TestimonyContainer>
