@@ -25,10 +25,10 @@ export const Carousel = styled.div`
 `;
 
 export const MainFigure = styled.figure`
-  width: 80%;
+  width: 90%;
   height: 300px;
   display: flex;
-  overflow: scroll;
+  overflow: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 
@@ -51,10 +51,10 @@ export const MainImage = styled.img`
 `;
 
 export const NextFigure = styled.figure`
-  width: 20%;
+  width: 10%;
   height: 300px;
   display: flex;
-  overflow: scroll;
+  overflow: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 
@@ -87,7 +87,7 @@ export const Overlay = styled.div`
   top: 0px;
   width: 100%;
   height: 100%;
-  background-color: #2c5a6e70;
+  background-color: #2c5a6e;
   mix-blend-mode: multiply;
 `;
 
