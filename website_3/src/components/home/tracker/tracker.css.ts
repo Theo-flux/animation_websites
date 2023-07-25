@@ -137,6 +137,7 @@ export const CardFigure = styled.figure`
 export const CardImage = styled.img`
   position: relative;
   left: 0px;
+  scale: 0.65;
   box-shadow: rgba(9, 111, 184, 0.15) 0px 10px 50px;
 
   &:first-of-type {
@@ -145,7 +146,7 @@ export const CardImage = styled.img`
 
   &:last-of-type {
     position: absolute;
-    left: 15%;
+    left: 20%;
     transform: translate(-50%, 0);
     bottom: -20px;
   }
