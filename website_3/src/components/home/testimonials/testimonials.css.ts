@@ -4,13 +4,9 @@ import { BodyText, Heading3 } from '../../../shared';
 
 export const TestimonyContainer = styled.section`
   width: 100%;
-  /* padding: 4rem 0rem; */
-  /* border: 1px solid magenta; */
 `;
 
 export const Wrapper = styled.div`
-  /* border: 1px solid magenta; */
-  /* height: auto; */
   margin-left: 20px;
 
   @media ${device.md} {
@@ -26,12 +22,15 @@ export const Carousel = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* gap: 1rem; */
 `;
 
 export const MainFigure = styled.figure`
   width: 80%;
-  height: 247px;
+  height: 300px;
+  display: flex;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 
   @media ${device.md} {
     width: 70%;
@@ -47,12 +46,17 @@ export const MainImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  flex: 1 0 100%;
+  scroll-snap-align: start;
 `;
 
 export const NextFigure = styled.figure`
-  position: relative;
   width: 20%;
-  height: 247px;
+  height: 300px;
+  display: flex;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 
   @media ${device.md} {
     width: 30%;
@@ -64,6 +68,19 @@ export const NextFigure = styled.figure`
   }
 `;
 
+export const NextFigureWrapper = styled.div`
+  position: relative;
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+`;
+
+export const NextImage = styled.img`
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
 export const Overlay = styled.div`
   position: absolute;
   z-index: 1;
@@ -72,13 +89,6 @@ export const Overlay = styled.div`
   height: 100%;
   background-color: #2c5a6e70;
   mix-blend-mode: multiply;
-`;
-
-export const NextImage = styled.img`
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 `;
 
 export const TestimonyCard = styled.div`
@@ -152,4 +162,23 @@ export const Text = styled(BodyText)`
   color: white;
 `;
 
-export const PaginationContainer = styled.div``;
+export const PaginationContainer = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 115px;
+`;
+
+type TIndicatorProps = {
+  active: number;
+  num: number;
+};
+
+export const Indicator = styled.div<TIndicatorProps>`
+  cursor: pointer;
+  width: 24px;
+  height: 4px;
+  background-color: ${props =>
+    props.active == props.num ? `#FFFFFF` : `#FFFFFF50`};
+`;

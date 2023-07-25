@@ -1,4 +1,5 @@
-// import { testifiersData } from './data';
+import { useRef, useEffect, useState } from 'react';
+import { testifiersData, testifiersMain, testifiersNext } from './data';
 import {
   TestimonyContainer,
   Wrapper,
@@ -6,6 +7,7 @@ import {
   MainFigure,
   MainImage,
   NextFigure,
+  NextFigureWrapper,
   Overlay,
   NextImage,
   TestimonyCard,
@@ -15,22 +17,70 @@ import {
   Group,
   Text,
   Title,
+  Indicator,
 } from './testimonials.css';
-import TestifierOne from '../../../assets/images/testifiers/testifier_1.png';
-import TestifierTwo from '../../../assets/images/testifiers/testifier_2.jpg';
 
 export default function Testimonials() {
   //TODO: Testimonial Slider effect
+  const mainFigureRef = useRef<HTMLElement>(null);
+  const nextFigureRef = useRef<HTMLElement>(null);
+  const mainSlideRef = useRef<Array<HTMLImageElement>>([]);
+  const nextSlideRef = useRef<Array<HTMLImageElement>>([]);
+  const [activeNum, setActiveNum] = useState(0);
+  let mainSlideWidth = 0;
+  let nextSlideWidth = 0;
+
+  if (mainFigureRef.current && nextFigureRef.current) {
+    mainSlideWidth = mainFigureRef.current.children[0].clientWidth;
+    nextSlideWidth = nextFigureRef.current.children[0].clientWidth;
+  }
+
+  const handleSlide = (arg: number) => {
+    setActiveNum(arg);
+
+    if (mainFigureRef.current) {
+      mainFigureRef.current.scrollLeft = activeNum * mainSlideWidth;
+    }
+
+    if (nextFigureRef.current) {
+      nextFigureRef.current.scrollLeft = activeNum * nextSlideWidth;
+    }
+  };
+
   return (
     <TestimonyContainer>
       <Wrapper>
         <Carousel>
-          <MainFigure>
-            <MainImage src={TestifierOne} alt="main image" />
+          <MainFigure ref={mainFigureRef}>
+            {testifiersMain.map((main, index) => {
+              return (
+                <MainImage
+                  key={index}
+                  ref={(element: HTMLImageElement) =>
+                    mainSlideRef.current.push(element!)
+                  }
+                  src={main}
+                  alt="main image"
+                />
+              );
+            })}
           </MainFigure>
-          <NextFigure>
-            <NextImage src={TestifierTwo} alt="main image" />
-            <Overlay></Overlay>
+          <NextFigure ref={nextFigureRef}>
+            {testifiersNext.map((next, index) => {
+              return (
+                <NextFigureWrapper>
+                  <Overlay></Overlay>
+                  <NextImage
+                    key={index}
+                    ref={(element: HTMLImageElement) =>
+                      nextSlideRef.current.push(element!)
+                    }
+                    src={next}
+                    alt="next image"
+                  />
+                </NextFigureWrapper>
+              );
+            })}
           </NextFigure>
         </Carousel>
         <TestimonyCard>
@@ -45,8 +95,20 @@ export default function Testimonials() {
 
             <Title>Maryjane Awe</Title>
             <Text>Lead Facilitator Teddy</Text>
+
+            <PaginationContainer>
+              {testifiersNext.map((_, index) => {
+                return (
+                  <Indicator
+                    onClick={() => handleSlide(index)}
+                    active={activeNum}
+                    num={index}
+                    key={index}
+                  ></Indicator>
+                );
+              })}
+            </PaginationContainer>
           </Group>
-          <PaginationContainer></PaginationContainer>
         </TestimonyCard>
       </Wrapper>
     </TestimonyContainer>
