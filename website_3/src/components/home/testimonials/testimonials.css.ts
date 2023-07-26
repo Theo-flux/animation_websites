@@ -107,7 +107,7 @@ export const TestimonyCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   @media ${device.md} {
     margin: 0px;
@@ -155,7 +155,19 @@ export const BigCircle = styled.div`
   }
 `;
 
-export const Group = styled.div``;
+export const Group = styled.div`
+  width: 90%;
+  /* border: 1px solid magenta; */
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+`;
+
+export const InnerGroup = styled.div`
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+`;
 
 export const Title = styled(Heading2)`
   text-align: left;
@@ -169,6 +181,7 @@ export const Text = styled(BodyText)`
 `;
 
 export const PaginationContainer = styled.div`
+  align-self: flex-start;
   margin-top: 2rem;
   display: flex;
   flex-direction: row;
