@@ -25,21 +25,21 @@ export const testifiersData = [
     position: 'Lead Facilitator Teddy',
   },
   {
-    id: 0,
+    id: 1,
     text: 'I used nearly every business platform in the market and I always come back to Brand Name. It provides the most user-friendly interface and has the in-depth Marketing I need.',
     name: 'Maryjane Awe',
     position: 'Lead Facilitator Teddy',
   },
 
   {
-    id: 0,
+    id: 2,
     text: 'I used nearly every business platform in the market and I always come back to Brand Name. It provides the most user-friendly interface and has the in-depth Marketing I need.',
     name: 'Maryjane Awe',
     position: 'Lead Facilitator Teddy',
   },
 
   {
-    id: 0,
+    id: 3,
     text: 'I used nearly every business platform in the market and I always come back to Brand Name. It provides the most user-friendly interface and has the in-depth Marketing I need.',
     name: 'Maryjane Awe',
     position: 'Lead Facilitator Teddy',

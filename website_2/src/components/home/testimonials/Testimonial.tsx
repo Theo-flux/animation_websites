@@ -85,7 +85,7 @@ const testimonies = [
 
 export default function Testimonial() {
   // TODO: Fix carousel slide bug
-  const [currentSlide, setCurrentSlide] = useState(1);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const maxSlide = testimonies.length - 1;
   const slideRef = useRef<HTMLDivElement[]>([]);
   const pushRef = (el: HTMLDivElement) => slideRef.current.push(el);

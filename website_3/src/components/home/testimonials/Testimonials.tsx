@@ -30,6 +30,7 @@ export default function Testimonials() {
   const nextSlideRef = useRef<Array<HTMLImageElement>>([]);
   const groupSlideRef = useRef<Array<HTMLDivElement>>([]);
   const [activeNum, setActiveNum] = useState(0);
+  const maxNum = testifiersMain.length;
   let mainSlideWidth = 0;
   let nextSlideWidth = 0;
   let groupSlideWidth = 0;
@@ -47,18 +48,33 @@ export default function Testimonials() {
   function handleSlide(arg: number) {
     setActiveNum(arg);
 
-    if (mainFigureRef.current) {
+    if (mainFigureRef.current && nextFigureRef.current && groupDivRef.current) {
       mainFigureRef.current.scrollLeft = activeNum * mainSlideWidth;
-    }
-
-    if (nextFigureRef.current) {
       nextFigureRef.current.scrollLeft = activeNum * nextSlideWidth;
-    }
-
-    if (groupDivRef.current) {
       groupDivRef.current.scrollLeft = activeNum * groupSlideWidth;
     }
   }
+
+  useEffect(() => {
+    const autoPlay = setInterval(() => {
+      if (activeNum < maxNum) {
+        setActiveNum(prev => prev + 1);
+      } else if (activeNum >= maxNum) {
+        setActiveNum(0);
+      }
+      if (
+        mainFigureRef.current &&
+        nextFigureRef.current &&
+        groupDivRef.current
+      ) {
+        mainFigureRef.current.scrollLeft = activeNum * mainSlideWidth;
+        nextFigureRef.current.scrollLeft = activeNum * nextSlideWidth;
+        groupDivRef.current.scrollLeft = activeNum * groupSlideWidth;
+      }
+    }, 10000);
+
+    return () => clearInterval(autoPlay);
+  }, [activeNum]);
 
   return (
     <TestimonyContainer>
@@ -81,10 +97,9 @@ export default function Testimonials() {
           <NextFigure ref={nextFigureRef}>
             {testifiersNext.map((next, index) => {
               return (
-                <NextFigureWrapper>
+                <NextFigureWrapper key={index}>
                   <Overlay></Overlay>
                   <NextImage
-                    key={index}
                     ref={(element: HTMLImageElement) =>
                       nextSlideRef.current.push(element!)
                     }
@@ -119,12 +134,13 @@ export default function Testimonials() {
           </Group>
 
           <PaginationContainer>
-            {testifiersNext.map((_, index) => {
+            {testifiersData.map((_, index) => {
+              const { id } = _;
               return (
                 <Indicator
-                  onClick={() => handleSlide(index)}
+                  onClick={() => handleSlide(id)}
                   active={activeNum}
-                  num={index}
+                  num={id}
                   key={index}
                 ></Indicator>
               );
