@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import gsap, { Power4 } from 'gsap';
+// import gsap, { Power4 } from 'gsap';
 import {
   TestimonialContainer,
   TopContainer,
