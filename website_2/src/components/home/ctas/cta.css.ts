@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { FiCheckCircle } from 'react-icons/fi';
-import { Heading2, Heading5, BodyText } from '../../../shared';
+import { Heading2, BodyText } from '../../../shared';
 import { device } from '../../../utils';
 
 type WrapperProps = {

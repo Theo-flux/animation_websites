@@ -15,7 +15,7 @@ export default function Layout({
 }: ILayoutProps) {
   return (
     <React.Fragment>
-      {/* <Preloader setAnimate={setAnimate} /> */}
+      <Preloader setAnimate={setAnimate} /> 
       <Section>
         <Nav animate={animate} />
         {children}

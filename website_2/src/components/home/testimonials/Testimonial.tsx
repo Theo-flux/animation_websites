@@ -133,95 +133,95 @@ export default function Testimonial() {
     });
   }, []);
 
-  const animateOnScroll = () => {
-    const tl = gsap.timeline();
+  // const animateOnScroll = () => {
+  //   const tl = gsap.timeline();
 
-    tl.fromTo(
-      sliderRef.current,
-      {
-        opacity: 0,
-        x: 80,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        ease: Power4.easeInOut,
-        scrollTrigger: {
-          trigger: sliderRef.current,
-          start: 'top 90%',
-          end: 'bottom 90%',
-          scrub: true,
-        },
-      }
-    )
-      .fromTo(
-        [titleRef.current, subTitleRef.current],
-        {
-          opacity: 0,
-          x: -80,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.3,
-          ease: Power4.easeInOut,
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: titleRef.current,
-            start: 'top 90%',
-            end: 'bottom 90%',
-            scrub: true,
-          },
-        }
-      )
-      .scrollTrigger?.kill();
-  };
+  //   tl.fromTo(
+  //     sliderRef.current,
+  //     {
+  //       opacity: 0,
+  //       x: 80,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       x: 0,
+  //       duration: 0.8,
+  //       ease: Power4.easeInOut,
+  //       scrollTrigger: {
+  //         trigger: sliderRef.current,
+  //         start: 'top 90%',
+  //         end: 'bottom 90%',
+  //         scrub: true,
+  //       },
+  //     }
+  //   )
+  //     .fromTo(
+  //       [titleRef.current, subTitleRef.current],
+  //       {
+  //         opacity: 0,
+  //         x: -80,
+  //       },
+  //       {
+  //         opacity: 1,
+  //         x: 0,
+  //         duration: 0.3,
+  //         ease: Power4.easeInOut,
+  //         stagger: 0.1,
+  //         scrollTrigger: {
+  //           trigger: titleRef.current,
+  //           start: 'top 90%',
+  //           end: 'bottom 90%',
+  //           scrub: true,
+  //         },
+  //       }
+  //     )
+  //     .scrollTrigger?.kill();
+  // };
 
-  const bottomContainerAnimation = () => {
-    const tl = gsap.timeline();
+  // const bottomContainerAnimation = () => {
+  //   const tl = gsap.timeline();
 
-    tl.fromTo(
-      [
-        bottomCntRef.current,
-        bottomTitleRef.current,
-        bottomSubTitleRef.current,
-        ctaBtnRef.current,
-        document.querySelectorAll('.team'),
-      ],
-      {
-        opacity: 0,
-        y: 40,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: bottomCntRef.current,
-          start: 'top 90%',
-          end: 'bottom 90%',
-          scrub: true,
-        },
-      }
-    ).fromTo(
-      circlesImgRef.current,
-      { opacity: 0, width: '0px' },
-      {
-        opacity: 1,
-        width: '50%',
-        duration: 0.8,
-        delay: 3,
-        scrollTrigger: {
-          trigger: circlesImgRef.current,
-          start: 'top 90%',
-          end: 'bottom 90%',
-          scrub: true,
-        },
-      }
-    );
-  };
+  //   tl.fromTo(
+  //     [
+  //       bottomCntRef.current,
+  //       bottomTitleRef.current,
+  //       bottomSubTitleRef.current,
+  //       ctaBtnRef.current,
+  //       document.querySelectorAll('.team'),
+  //     ],
+  //     {
+  //       opacity: 0,
+  //       y: 40,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       duration: 0.8,
+  //       stagger: 0.1,
+  //       scrollTrigger: {
+  //         trigger: bottomCntRef.current,
+  //         start: 'top 90%',
+  //         end: 'bottom 90%',
+  //         scrub: true,
+  //       },
+  //     }
+  //   ).fromTo(
+  //     circlesImgRef.current,
+  //     { opacity: 0, width: '0px' },
+  //     {
+  //       opacity: 1,
+  //       width: '50%',
+  //       duration: 0.8,
+  //       delay: 3,
+  //       scrollTrigger: {
+  //         trigger: circlesImgRef.current,
+  //         start: 'top 90%',
+  //         end: 'bottom 90%',
+  //         scrub: true,
+  //       },
+  //     }
+  //   );
+  // };
 
   // useEffect(() => {
   //   animateOnScroll();
